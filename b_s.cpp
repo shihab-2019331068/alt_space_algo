@@ -1,5 +1,7 @@
 ll b_s(ll l,ll r)
 {
+   if(l==r)
+      return l;
    ll m;
    m=(l+r)/2;
    if(chk(m))
