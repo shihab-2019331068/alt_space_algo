@@ -4,6 +4,6 @@ void dfs(ll u=1)
       if(p[u]==v)
          continue;
       p[v]=u;
-      dfs(u);
+      dfs(v);
    }
 }
