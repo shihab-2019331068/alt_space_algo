@@ -7,6 +7,6 @@ vector<ll> ttn(vector<ll> &a)
       t|=(t<<i);
    for(i=0; i<N; i++)
       if(t[i])
-         A.push_back(i);|
+         A.push_back(i);
    return A;
 }
