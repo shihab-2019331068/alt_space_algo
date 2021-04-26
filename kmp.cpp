@@ -15,7 +15,9 @@ void mlps(string &t,vector<ll> &p)
 ll kmp(string &s,string &t)
 {
    ll tz=t.size(), sz=s.size();
-   vector<ll> p(tz);
+   if(!tz)
+      return 0;
+   vector<ll> p(tz,0);
    mlps(t,p);
    ll i,j;
    for(i=j=0; i<sz and j<tz; ){
@@ -28,5 +30,5 @@ ll kmp(string &s,string &t)
          j?j=p[j-1]:i++;
       }
    }
-   return sz;|
+   return sz;
 }
