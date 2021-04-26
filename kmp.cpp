@@ -18,7 +18,7 @@ ll kmp(string &s,string &t)
    vector<ll> p(tz);
    mlps(t,p);
    ll i,j;
-   for(i=j=0; i<sz; ){
+   for(i=j=0; i<sz and j<tz; ){
       if(s[i]==t[j]){
          i++; j++;
       }
