@@ -1,11 +1,11 @@
-void dfs(ll u=1,ll p=-1,ll D=0)
+void scc(ll u=1,ll p=-1,ll D=0)
 {
    d[u]=D;
    for(auto [i,v]:g[u]){
       if(v==p)
          continue;
       if(d[v]==-1)
-         dfs(v,u,D+1);
+         scc(v,u,D+1);
       if(d[v]>D){
          A.push_back({u,v});
          A.push_back({v,u});
