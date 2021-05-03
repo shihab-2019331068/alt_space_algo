@@ -1,9 +1,8 @@
-void dfs(ll u=1)
+void dfs(ll u=1,ll p=-1)
 {
    for(ll v:g[u]){
-      if(p[u]==v)
+      if(p==v)
          continue;
-      p[v]=u;
       dfs(v);
    }
-}
+}|
