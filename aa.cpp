@@ -13,6 +13,7 @@ using namespace std;
 #define sc                second
 #define pll               pair<ll,ll>
 #define vll               vector<ll>
+#define bp(x)             __builtin_popcount(x)
 #define all(a)            a.begin(),a.end()
 
 
