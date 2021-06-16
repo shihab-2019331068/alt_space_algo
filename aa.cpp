@@ -22,10 +22,11 @@ using namespace std;
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {
-	cerr << *it << "=" << a << " ! ";
-	err(++it, args...);
+   cerr << *it << "=" << a << " ! ";
+   err(++it, args...);
 }
 
+const ll N=5e6+7, M=1e9+7;
 
 int main()
 {
@@ -42,11 +43,6 @@ int main()
    * WRITE STUFF DOWN
    * DON'T GET STUCK ON ONE APPROACH
 */
-
-
-
-
-
 
 
 
