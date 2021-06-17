@@ -1,6 +1,6 @@
 void dijkstra(ll u,ll z)
 {
-   set<pair<ll,ll>> s;
+   set<pll> s;
    d.assign(z,inf); d[u]=0;
    for(s={{0,u}}; s.size(); ){
       auto [ul,u]=*s.begin();
