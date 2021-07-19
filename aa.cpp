@@ -8,12 +8,13 @@ using namespace std;
 #define iof               ifs ofs
 #define ll                long long
 #define ld                long double
-#define inf               LLONG_MAX
+#define inf               2e18
 #define fr                first
 #define sc                second
 #define pll               pair<ll,ll>
+#define tll               tuple<ll,ll,ll>
 #define vll               vector<ll>
-#define bp(x)             __builtin_popcount(x)
+#define bp(x)             __builtin_popcountll(x)
 #define all(a)            a.begin(),a.end()
 
 
