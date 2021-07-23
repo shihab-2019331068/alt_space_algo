@@ -1,0 +1,26 @@
+ll cross(pll &p1,pll &p2,pll &p3)
+{
+   auto [x1,y1]=p1;auto [x2,y2]=p2; auto [x3,y3]=p3;
+   ll r=x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2);
+   return r;
+}
+
+vector<pll> convex_hull(auto &p)
+{
+   if(p.size()<=2) return p;
+   vector<pll> v;
+   ll i,j;
+   sort(all(p));
+   for(j=0; j<2; j++){
+      for(i=j; i+j<p.size(); i++){
+         if(cross(p[0],p[i],p.back())<0) continue;
+         for(; v.size()>1; v.pop_back()){
+            pll p1=v[v.size()-2],p2=v.back(),p3=p[i];
+            if(cross(p1,p2,p3)>0) break;
+         }
+         v.push_back(p[i]);
+      }
+      reverse(all(p));
+   }
+   return v;|
+}
