@@ -8,7 +8,6 @@ using namespace std;
 #define iof               ifs ofs
 #define ll                long long
 #define ld                long double
-#define inf               2e18
 #define fr                first
 #define sc                second
 #define pll               pair<ll,ll>
@@ -27,7 +26,7 @@ void err(istream_iterator<string> it, T a, Args... args) {
    err(++it, args...);
 }
 
-const ll N=5e6+7, M=1e9+7;
+const ll N=5e6+7, M=1e9+7, inf=2e18;
 
 int main()
 {
