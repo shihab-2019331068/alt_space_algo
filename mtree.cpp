@@ -36,6 +36,6 @@ void build(ll l=1,ll r=n,ll p=0)
    m=(l+r)/2;
    lc=p*2+1; rc=lc+1;
    build(l,m,lc); build(m+1,r,rc);
-   t[0][p]=min(t[0],[lc],t[0][rc]);
-   t[1][p]=max(t[1],[lc],t[1][rc]);|
+   t[0][p]=min(t[0][lc],t[0][rc]);
+   t[1][p]=max(t[1][lc],t[1][rc]);|
 }
