@@ -1,10 +1,11 @@
 ll fat(ll p[],ll x)
 {
-   return p[x]==x?x:fat(p,x);|
+   return p[x]==x?x:fat(p,p[x]);
 }
 
 void join(ll p[],ll h[],ll a,ll b)
 {
+   if(a==b) return;
    if(h[a]<h[b]) swap(a,b);
    p[b]=a; h[a]+=h[b]; h[b]=0;
 }
