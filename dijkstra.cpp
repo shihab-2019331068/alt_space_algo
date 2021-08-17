@@ -1,4 +1,4 @@
-void dijkstra(ll u,ll z)
+void dijkstra(ll u,ll z,vll &d)
 {
    set<pll> s;
    d.assign(z,inf); d[u]=0;
