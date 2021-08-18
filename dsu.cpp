@@ -1,6 +1,6 @@
 ll fat(ll p[],ll x)
 {
-   return p[x]==x?x:fat(p,p[x]);
+   return p[x]=p[x]==x?x:fat(p,p[x]);|
 }
 
 void join(ll p[],ll h[],ll a,ll b)
