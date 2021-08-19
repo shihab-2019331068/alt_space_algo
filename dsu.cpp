@@ -7,4 +7,4 @@ void join(ll p[],ll h[],ll a,ll b)
    h[a]+=h[b]; h[b]=0; p[b]=a;|
 }
 
-void dsu(ll p[],ll n){for(ll i=0; i<=n; i++){p[i]=i; h[i]=1;}}
+void dsu(ll p[],ll h[],ll n){for(ll i=0; i<=n; i++){p[i]=i; h[i]=1;}}
