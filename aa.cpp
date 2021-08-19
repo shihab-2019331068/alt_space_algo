@@ -13,6 +13,7 @@ using namespace std;
 #define bp(x)             __builtin_popcountll(x)
 #define all(a)            a.begin(),a.end()
 #define cb(a,i)           (a>>i&1)
+#define mp(a,b)           make_pair(a,b)
 
 
 #define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
