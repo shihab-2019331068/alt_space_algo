@@ -1,40 +1,16 @@
-ll rnq(ll sp,ll ep,ll l=1,ll r=n,ll p=0)
+ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=m-1)
 {
-   if(ep<l or r<sp)
-      return 0;
-   if(sp<=l and r<=ep)
-      return t[p];
-   ll m,lc,rc;
-   m=(l+r)/2;
-   lc=p*2+1; rc=lc+1;
-   return rnq(sp,ep,l,m,lc)+rnq(sp,ep,m+1,r,rc);
+   if(r<b or e<l) return 0;|
+   if(l<=b and e<=r) return T[u];
+   ll m=b+e>>1;
+   return rnq(l,r,u<<1,b,m)+rnq(l,r,u<<1|1,m+1,e);
 }
 
-void upd(ll i,ll v,ll l=1,ll r=n,ll p=0)
+void upd(ll i,ll v,ll u=1,ll b=1,ll e=m-1)
 {
-   if(i<l or r<i)
-      return;
-   if(l==r and r==i){
-      t[p]=a[l]=v;
-      return;
-   }
-   ll m,lc,rc;
-   m=(l+r)/2;
-   lc=p*2+1; rc=lc+1;
-   upd(i,v,l,m,lc); upd(i,v,m+1,r,rc);
-   t[p]=t[lc]+t[rc];
+   if(i<b or e<i) return;
+   if(i<=b and e<=i) {T[u]+=v; return;}
+   ll m=b+e>>1;
+   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);
+   T[u]=T[u<<1]+T[u<<1|1];
 }
-
-void build(ll l=1,ll r=n,ll p=0)
-{
-   if(l==r){
-      t[p]=a[l];
-      return;
-   }
-   ll m,lc,rc;
-   m=(l+r)/2;
-   lc=p*2+1; rc=lc+1;
-   build(l,m,lc); build(m+1,r,rc);
-   t[p]=t[lc]+t[rc];
-}
-|
