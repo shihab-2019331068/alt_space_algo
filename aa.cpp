@@ -3,6 +3,7 @@
 using namespace std;
 
 #define fastio            ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define aa                auto
 #define ll                long long
 #define ld                long double
 #define fr                first
