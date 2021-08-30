@@ -1,5 +1,4 @@
-void nlr()
-{
+void nlr(){
    vector<pll> v={mp(0,n+1);
    for(i=n; i; i--){
       for(; v.back()->fr>=h[i]; v.pop_back());
