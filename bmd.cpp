@@ -1,5 +1,4 @@
-ll bmd(ll n,ll k)
-{
+ll bmd(ll n,ll k){
    if(!k)
       return 1;
    if(k%2)
