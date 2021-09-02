@@ -1,5 +1,4 @@
-ll b_s(ll l,ll r)
-{
+ll b_s(ll l,ll r){
    ll m;
    for(; l<r; ){
       m=(l+r)/2;
