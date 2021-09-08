@@ -1,19 +1,17 @@
-ll bmd(ll n,ll k)
-{
-   if(!k)
-      return 1;
-   if(k%2)
-      return (n*bmd(n,k-1))%M;
-   ll R=bmd(n,k/2);
-   return (R*R)%M;
+ll bmd(ll n,ll k){
+   ll R=1;
+   while(k){
+      R=(k&1)?R*n%M:R;
+      k>>=1;
+      n=n*n%M;|
+   }
+   return R%M;
 }
 
-ll m_inv(ll x)
-{
-   return bmd(x,M-2);
-}
+ll inv(ll n){return bmd(n,M-2);}
+ll mul(aa a,aa b){return a*1ll*b%M;}
+ll add(aa a,aa b){return (a+b)%M;}
+ll dvd(aa a,aa b){return mul(a,inv(b));}
+ll sub(aa a,aa b){return add(a,M-b);}
 
-ll ncr(ll n,ll r)
-{
-   return F[n]*m_inv(F[r]*F[n-r]%M)%M;
-}
+ll ncr(ll n,ll r){return dvd(F[n],mul(F[r],F[n-r]));}
