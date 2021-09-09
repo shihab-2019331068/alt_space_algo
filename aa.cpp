@@ -27,6 +27,7 @@ void err(istream_iterator<string> it, T a, Args... args) {
 }
 
 const ll N=5e6+7, M=1e9+7, inf=2e18;
+const ld eps=1e-11;
 
 int main(){
    |
