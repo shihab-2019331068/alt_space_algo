@@ -1,5 +1,5 @@
 void mobius(aa f[],aa mob[]){
-   ll i,j;
+   ll i,j; mob[1]=1;
    for(i=2; i<N; i++){
       if(f[i])
          continue;
