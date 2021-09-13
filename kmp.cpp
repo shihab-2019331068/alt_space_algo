@@ -1,5 +1,4 @@
-void mlps(string &t,vector<ll> &p)
-{
+void mlps(string &t,vector<ll> &p){
    ll i,j,tz=t.size();
    for(j=0,i=1; i<tz; i++){
       if(t[j]==t[i]) p[i]=++j;
@@ -10,8 +9,7 @@ void mlps(string &t,vector<ll> &p)
    }
 }
 
-ll kmp(string &s,string &t)
-{
+ll kmp(string &s,string &t){
    ll tz=t.size(), sz=s.size();
    if(!tz) return 0;
    vector<ll> p(tz,0);
