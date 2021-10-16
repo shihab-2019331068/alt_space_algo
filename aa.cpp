@@ -13,12 +13,12 @@ using namespace std;
 #define vll               vector<ll>
 #define bp(x)             __builtin_popcountll(x)
 #define all(a)            a.begin(),a.end()
+#define arr(a)            a.rbegin(),a.rend()
 #define cb(a,i)           (a>>i&1)
 #define mp(a,b)           make_pair(a,b)
 
 
 #define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
-
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
 void err(istream_iterator<string> it, T a, Args... args) {
@@ -26,11 +26,13 @@ void err(istream_iterator<string> it, T a, Args... args) {
    err(++it, args...);
 }
 
-const ll N=5e6+7, M=1e9+7, inf=2e18;
-const ld eps=1e-11;
+const ll N=5e5+7,N1=25,inf=2e18;
+const ld eps=1e-8;
+const ll M=1e9+7;
+//const ll M=998244353;
 
 int main(){
-   |
+
 }
 
 
