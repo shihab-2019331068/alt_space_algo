@@ -32,20 +32,8 @@ const ll M=1e9+7;
 //const ll M=998244353;
 
 int main(){
-
+   |
 }
-
-
-
-/* stuff you should look for
-   * obvious case
-   * int overflow, array bounds
-   * special cases (n=1?)
-   * do smth instead of nothing and stay organized
-   * WRITE STUFF DOWN
-   * DON'T GET STUCK ON ONE APPROACH
-*/
-
 
 
 
