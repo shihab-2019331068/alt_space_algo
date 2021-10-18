@@ -1,6 +1,5 @@
-struct heap
-{
-   vector<ll> h;|
+struct heap{
+   vector<ll> h;
 
    void push(ll x){
       ll i,j;
