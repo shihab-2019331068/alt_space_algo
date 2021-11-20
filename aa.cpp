@@ -4,7 +4,7 @@ using namespace std;
 
 #define fastio            ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define aa                auto
-#define cn                constant
+#define cn                const
 #define ll                long long
 #define ld                long double
 #define fr                first
@@ -18,6 +18,7 @@ using namespace std;
 #define cb(a,i)           (a>>i&1)
 #define mp(a,b)           make_pair(a,b)
 #define pb(a)             push_back(a)
+#define ve                vector
 
 
 #define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<"\n";}
