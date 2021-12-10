@@ -1,17 +1,4 @@
 {
-   // Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
-   // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-   // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-   // same ids are connected.
-   // Example:
-   // "Print to console": {
-   // 	"prefix": "log",
-   // 	"body": [
-   // 		"console.log('$1');",
-   // 		"$2"
-   // 	],
-   // 	"description": "Log output to console"
-   // }
    "Main template": {
       "prefix": "aa",
       "body": [
@@ -92,7 +79,7 @@
     "for loop": {
     	"prefix": "f",
     	"body": [
-         "for($1=$2; $1<$3; $1++)$4",
+         "for($1=$2; $1<$3; $1++)",
     	],
     },
     "string": {
@@ -122,7 +109,7 @@
     "return": {
     	"prefix": "r",
     	"body": [
-         "return$1",
+         "return",
     	],
     },
     "min": {
@@ -151,11 +138,19 @@
 
     	],
     },
+    "check": {
+    	"prefix": "chk",
+    	"body": [
+         "ll chk(){",
+         "   $0",
+         "}",
+    	],
+    },
     "sex": {
     	"prefix": "sex",
     	"body": [
          "ll sex(){",
-         "   $1",
+         "   $0",
          "}",
     	],
     },
@@ -168,7 +163,71 @@
     "max": {
     	"prefix": "mx",
     	"body": [
-         "max($1)",
+         "max($0)",
+    	],
+    },
+    "setprecision": {
+    	"prefix": "stp",
+    	"body": [
+         "cout<<fixed<<setprecision($1);",
+    	],
+    },
+    "fin": {
+    	"prefix": "fin",
+    	"body": [
+         "for(i=1; i<=$1; i++)",
+    	],
+    },
+    "moduler  arithmetic": {
+    	"prefix": "mod",
+    	"body": [
+          "ll bmd(ll n,ll k){",
+          "   return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;",
+          "}",
+          "ll inv(ll n){return bmd(n,M-2);}",
+          "ll mul(aa a,aa b){return a*1ll*b%M;}",
+          "ll add(aa a,aa b){a+=b; return a<M?a:a-M;}",
+          "ll dvd(aa a,aa b){return mul(a,inv(b));}",
+          "ll sub(aa a,aa b){return add(a,M-b);}",
+
+    	],
+    },
+    "dsu": {
+    	"prefix": "dsu",
+    	"body": [
+          "struct DSU{",
+          "   map<ll,ll> p,h;",
+          "   ll com;",
+          "   DSU(){com=n;}",
+          "   ll get(ll x){",
+          "      if(!p.count(x)) return p[x]=x;",
+          "      return p[x]=p[x]==x?x:get(p[x]);",
+          "   }",
+          "   ll unite(ll u,ll v){",
+          "      u=get(u); v=get(v);",
+          "      if(u==v) return 0;",
+          "      if(!h.count(u)) h[u]=1;",
+          "      if(!h.count(v)) h[v]=1;",
+          "      if(h[u]<h[v]) swap(u,v);",
+          "      p[v]=u; h[u]+=h[v]; h[v]=0;",
+          "      --com;",
+          "      return 1;",
+          "   }",
+          "};",
+    	],
+    },
+    "binary search": {
+    	"prefix": "bs",
+    	"body": [
+          "ll b_s(ll l,ll r){",
+          "   ll m;$1",
+          "   for(; l<r; ){",
+          "      m=l+r>>1;",
+          "      if(chk(m)) r=m;",
+          "      else l=m+1;",
+          "   }",
+          "   return l;",
+          "}",
     	],
     }
     
