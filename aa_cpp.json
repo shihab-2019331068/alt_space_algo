@@ -21,6 +21,7 @@
 		"#define arr(a)            a.rbegin(),a.rend()",
 		"#define cb(a,i)           (a>>i&1)",
 		"#define mp(a,b)           make_pair(a,b)",
+		"#define mt(a,b,c)         make_tuple(a,b,c)",
 		"#define lb(a)             lower_bound(a)",
 		"#define ub(a)             upper_bound(a)",
 		"#define pb(a)             push_back(a)",
@@ -105,20 +106,20 @@
 	 "min_tree": {
 		 "prefix": "mtree",
 		 "body": [
-		   "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=m-1){",
+		   "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
 		   "   if(r<b or e<l) return inf;",
-		   "   if(l<=b and e<=r) return T[u];|",
+		   "   if(l<=b and e<=r) return T[u];",
 		   "   ll m=b+e>>1;",
 		   "   return min(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
 		   "}",
 		   "",
-		   "void upd(ll i,ll v,ll u=1,ll b=1,ll e=m-1){",
+		   "void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
 		   "   if(i<b or e<i) return;",
 		   "   if(i<=b and e<=i){T[u]+=v; return;}",
 		   "   ll m=b+e>>1;",
 		   "   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
 		   "   T[u]=min(T[u<<1],T[u<<1|1]);",
-		   "}$1",
+		   "}",
  
 		 ],
 	 },
@@ -261,7 +262,7 @@
 		 ],
 	 },
 	 "pushBack": {
-		 "prefix": "pb",
+		 "prefix": "p",
 		 "body": [
 		   "pb($0)",
 		 ],
@@ -270,6 +271,12 @@
 		 "prefix": "mp",
 		 "body": [
 		   "mp($0)",
+		 ],
+	 },
+	 "makeTuple": {
+		 "prefix": "mt",
+		 "body": [
+		   "mt($0)",
 		 ],
 	 },
 	 "dfs": {
@@ -308,6 +315,56 @@
 		 "prefix": "sn",
 		 "body": [
 		   "<<\" \\n\"[i==n$0];",
+		 ],
+	 },
+	 "fwt": {
+		 "prefix": "fwt",
+		 "body": [
+		   "void upd(vll &t,ll i,ll v) {for(; i<t.size(); i+=i&-i) t[i]+=v;}",
+			"ll ask(vll &t,ll i) {ll R=0; for(; i>0; i-=i&-i) R+=t[i]; return R;}",
+		 ],
+	 },
+	 "segTree": {
+		 "prefix": "stree",
+		 "body": [
+		   "ll mrg(ll x,ll y) {",
+			"   return min$0(x,y);",
+			"}",
+			"",
+			"ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
+			"   if(r<b or e<l) return inf;",
+			"   if(l<=b and e<=r) return T[u];",
+			"   ll m=b+e>>1;",
+			"   return mrg(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
+			"}",
+			"",
+			"void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
+			"   if(i<b or e<i) return;",
+			"   if(i<=b and e<=i){T[u]+=v; return;}",
+			"   ll m=b+e>>1;",
+			"   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
+			"   T[u]=mrg(T[u<<1],T[u<<1|1]);",
+			"}",
+		 ],
+	 },
+	 "srk2": {
+		 "prefix": "srk2",
+		 "body": [
+		   "void srk2(ll a[],ll n,ll b[],ll m) {",
+			"   set<ll> s; map<ll,ll> ma; ll i;",
+			"   for(i=1; i<=n; i++) s.insert(a[i]);",
+			"   for(i=1; i<=m; i++) s.insert(b[i]);",
+			"   i=0;",
+			"   for(ll j:s) ma[j]=++i;",
+			"   for(i=1; i<=n; i++) a[i]=ma[a[i]];",
+			"   for(i=1; i<=m; i++) b[i]=ma[b[i]];",
+			"}",
+		 ],
+	 },
+	 "continue": {
+		 "prefix": "con",
+		 "body": [
+		   "continue;",
 		 ],
 	 },
 	 "yes": {
