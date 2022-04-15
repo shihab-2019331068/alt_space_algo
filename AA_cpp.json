@@ -1,528 +1,653 @@
 {
-	"Main template": {
-	  "prefix": "aa",
-	  "body": [
-		"#include<bits/stdc++.h>",
-		"",
-		"using namespace std;",
-		"",
-		"#define fastio            ios_base::sync_with_stdio(false); cin.tie(NULL);",
-		"#define aa                auto",
-		"#define cn                const",
-		"#define ll                long long",
-		"#define ld                long double",
-		"#define fr                first",
-		"#define sc                second",
-		"#define pll               pair<ll,ll>",
-		"#define tll               tuple<ll,ll,ll>",
-		"#define vll               vector<ll>",
-		"#define bp(x)             __builtin_popcountll(x)",
-		"#define all(a)            a.begin(),a.end()",
-		"#define arr(a)            a.rbegin(),a.rend()",
-		"#define cb(a,i)           (a>>i&1)",
-		"#define mp(a,b)           make_pair(a,b)",
-		"#define mt(a,b,c)         make_tuple(a,b,c)",
-		"#define lb(a)             lower_bound(a)",
-		"#define ub(a)             upper_bound(a)",
-		"#define pb(a)             push_back(a)",
-		"#define ve                vector",
-		"",
-		"",
-		"#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<\"\\n\";}",
-		"void err(istream_iterator<string> it) {}",
-		"template<typename T, typename... Args>",
-		"void err(istream_iterator<string> it, T a, Args... args) {",
-		"   cerr << *it << \"=\" << a << \" ! \";",
-		"   err(++it, args...);",
-		"}",
-		"",
-		"cn ll N=5e5+7,N1=25,inf=2e18;",
-		"cn ld eps=1e-8;",
-		"cn ll M=1e9+7;",
-		"//cn ll M=998244353;",
-		"ll n;",
-		"",
-		"int main(){",
-		"   fastio",
-		"   $0",
-		"}",
-		"",
-	  ],
-	},
-	"input": {
-		"prefix": "i",
-		"body": [
-		 "cin>>$0",
-		],
-	},
-	"Output": {
-	  "prefix": "o",
-	  "body": [
-		 "cout<<$0"
-	  ],
-	},
-	"for loop": {
-		"prefix": "f",
-		"body": [
-		 "for($0)",
-		],
-	},
-	"string": {
-		"prefix": "g",
-		"body": [
-		 "string$0",
-		],
-	},
-	"memset": {
-		"prefix": "mm",
-		"body": [
-		 "memset($1,$2,sizeof($1));",
-		],
-	},
-	"next line": {
-		"prefix": "nl",
-		"body": [
-		 "<<\"\\n\"",
-		],
-	},
-	"my if": {
-		"prefix": "iff",
-		"body": [
-		 "if($0)",
-		],
-	},
-	"return": {
-		"prefix": "r",
-		"body": [
-		 "return",
-		],
-	},
-	"min": {
-		"prefix": "mn",
-		"body": [
-		 "min($0)",
-		],
-	},
-	"min_tree": {
-		"prefix": "mtree",
-		"body": [
-		  "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
-		  "   if(r<b or e<l) return inf;",
-		  "   if(l<=b and e<=r) return T[u];",
-		  "   ll m=b+e>>1;",
-		  "   return min(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
-		  "}",
-		  "",
-		  "void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
-		  "   if(i<b or e<i) return;",
-		  "   if(i<=b and e<=i){T[u]+=v; return;}",
-		  "   ll m=b+e>>1;",
-		  "   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
-		  "   T[u]=min(T[u<<1],T[u<<1|1]);",
-		  "}",
- 
-		],
-	},
-	"check": {
-		"prefix": "chk",
-		"body": [
-		 "ll chk(){",
-		 "   $0",
-		 "}",
-		],
-	},
-	"sex": {
-		"prefix": "sex",
-		"body": [
-		 "ll sex($1){",
-		 "   $0",
-		 "}",
-		],
-	},
-	"insert": {
-		"prefix": "in",
-		"body": [
-		 "insert($0)",
-		],
-	},
-	"max": {
-		"prefix": "mx",
-		"body": [
-		 "max($0)",
-		],
-	},
-	"setprecision": {
-		"prefix": "stp",
-		"body": [
-		 "cout<<fixed<<setprecision($1);",
-		],
-	},
-	"db": {
-		"prefix": "d",
-		"body": [
-		 "db($0);",
-		],
-	},
-	"fio": {
-		"prefix": "fio",
-		"body": [
-		  "for(i=0; i<$0; i++)",
-		],
-	},
-	"fjo": {
-		"prefix": "fjo",
-		"body": [
-		 "for(j=0; j<$0; j++)",
-		],
-	},
-	"fko": {
-		"prefix": "fko",
-		"body": [
-		 "for(k=0; k<$0; k++)",
-		],
-	},
-	"fin": {
-		"prefix": "fin",
-		"body": [
-		 "for(i=1; i<=$1; i++)",
-		],
-	},
-	"fjn": {
-		"prefix": "fjn",
-		"body": [
-		 "for(j=1; j<=$1; j++)",
-		],
-	},
-	"fkn": {
-		"prefix": "fkn",
-		"body": [
-		 "for(k=1; k<=$1; k++)",
-		],
-	},
-	"moduler  arithmetic": {
-		"prefix": "mod",
-		"body": [
-		  "ll bmd(ll a,ll p){",
-		  "   return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;",
-		  "}",
-		  "ll inv(ll n){return bmd(n,M-2);}",
-		  "ll mul(ll a,ll b){return a*1ll*b%M;}",
-		  "ll add(ll a,ll b){a+=b; return a<M?a:a-M;}",
-		  "ll dvd(ll a,ll b){return mul(a,inv(b));}",
-		  "ll sub(ll a,ll b){return add(a,M-b);}",
- 
-		],
-	},
-	"dsu": {
-		"prefix": "dsu",
-		"body": [
-			"struct DSU{",
-			"   vll p,h;",
-			"   ll com,i;",
-			"   DSU(ll n){",
-			"      com=n;",
-			"      p=h=vll(n+3,1);",
-			"      for(i=0; i<=n; i++) p[i]=i;",
-			"   }",
-			"   ll get(ll x){",
-			"      return p[x]=p[x]==x?x:get(p[x]);",
-			"   }",
-			"   ll unite(ll u,ll v){",
-			"      u=get(u); v=get(v);",
-			"      if(u==v) return 0;",
-			"      if(h[u]<h[v]) swap(u,v);",
-			"      p[v]=u; h[u]+=h[v]; h[v]=0;",
-			"      --com;",
-			"      return 1;",
-			"   }",
-			"};",
-		],
-	},
-	"no": {
-		"prefix": "no",
-		"body": [
-		  "cout<<\"NO\\n\";",
-		],
-	},
-	"yesNo": {
-		"prefix": "yn",
-		"body": [
-		  "cout<<(?\"YES\":\"NO\";",
-		],
-	},
-	"aSpace": {
-		"prefix": "as",
-		"body": [
-		  "<<\" \"<<",
-		],
-	},
-	"swap": {
-		"prefix": "sw",
-		"body": [
-		  "swap($0);",
-		],
-	},
-	"pushBack": {
-		"prefix": "p",
-		"body": [
-		  "pb($0)",
-		],
-	},
-	"makePair": {
-		"prefix": "mp",
-		"body": [
-		  "mp($0)",
-		],
-	},
-	"makeTuple": {
-		"prefix": "mt",
-		"body": [
-		  "mt($0)",
-		],
-	},
-	"dfs": {
-		"prefix": "dfs",
-		"body": [
-		  "void dfs(ll u,ll p) {",
-			"   for(ll v:g[u]) if(v!=p) {",
-			"      dfs(v,u);",
-			"      $0",
-			"   }",
-			"}",
-		],
-	},
-	"while": {
-		"prefix": "ww",
-		"body": [
-		  "while($0)",
-		],
-	},
-	"size": {
-		"prefix": "z",
-		"body": [
-		  "size()",
-		],
-	},
-	"tt": {
-		"prefix": "tt",
-		"body": [
-		  "ll tt; cin>>tt;",
-			"while(tt--) {",
-			"   $0",
-			"}",
-		],
-	},
-	"sn": {
-		"prefix": "sn",
-		"body": [
-		  "<<\" \\n\"[i==n$0];",
-		],
-	},
-	"fwt": {
-		"prefix": "fwt",
-		"body": [
-		  "void upd(vll &t,ll i,ll v) {for(; i<t.size(); i+=i&-i) t[i]+=v;}",
-			"ll ask(vll &t,ll i) {ll R=0; for(; i>0; i-=i&-i) R+=t[i]; return R;}",
-		],
-	},
-	"segTree": {
-		"prefix": "stree",
-		"body": [
-		  "ll mrg(ll x,ll y) {",
-			"   return min$0(x,y);",
-			"}",
-			"",
-			"ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
-			"   if(r<b or e<l) return inf;",
-			"   if(l<=b and e<=r) return T[u];",
-			"   ll m=b+e>>1;",
-			"   return mrg(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
-			"}",
-			"",
-			"void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
-			"   if(i<b or e<i) return;",
-			"   if(i<=b and e<=i){T[u]+=v; return;}",
-			"   ll m=b+e>>1;",
-			"   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
-			"   T[u]=mrg(T[u<<1],T[u<<1|1]);",
-			"}",
-		],
-	},
-	"srk2": {
-		"prefix": "srk2",
-		"body": [
-		  "void srk2(ll a[],ll n,ll b[],ll m) {",
-			"   set<ll> s; map<ll,ll> ma; ll i;",
-			"   for(i=1; i<=n; i++) s.insert(a[i]);",
-			"   for(i=1; i<=m; i++) s.insert(b[i]);",
-			"   i=0;",
-			"   for(ll j:s) ma[j]=++i;",
-			"   for(i=1; i<=n; i++) a[i]=ma[a[i]];",
-			"   for(i=1; i<=m; i++) b[i]=ma[b[i]];",
-			"}",
-		],
-	},
-	"continue": {
-		"prefix": "con",
-		"body": [
-		  "continue;",
-		],
-	},
-	"hash": {
-		"prefix": "hash",
-		"body": [
-			"struct Hash {",
-			"   ve<ve<ll>> pv;",
-			"   ve<ll> b={122,123};",
-			"   ",
-			"   ll rabinKarpHash(const string &s,ll bi) {",
-			"      ll n=s.size(),ans=0,i;",
-			"      for(i=0; i<n; i++) ans=add(ans,mul(s[i],pv[bi][n-i-1]));",
-			"      return ans;",
-			"   }",
-			"",
-			"   ll roll(char c1,char c2,ll bi,ll sh,ll tz) {",
-			"      sh=sub(sh,mul(c1,pv[bi][tz-1]));",
-			"      sh=mul(sh,b[bi]);",
-			"      sh=add(sh,c2);",
-			"      return sh;",
-			"   }",
-			"",
-			"   ll go(const string &s,const string &t) {",
-			"      ll sz=s.size(),i,j,tz=t.size();",
-			"      if(tz>sz) return -1;",
-			"",
-			"      pv=ve<ve<ll>> (2,ve<ll>(sz+7));",
-			"      for(i=0; i<2; i++) for(j=1,pv[i][0]=1; j<sz+7; j++) pv[i][j]=mul(pv[i][j-1],b[i]);",
-			"",
-			"      ll th1=rabinKarpHash(t,0),sh1=rabinKarpHash(s.substr(0,tz),0);",
-			"      ll th2=rabinKarpHash(t,1),sh2=rabinKarpHash(s.substr(0,tz),1);",
-			"",
-			"      if(th1==sh1 and th2==sh2) return 0;",
-			"      for(i=0; i+tz<sz; i++) {",
-			"         sh1=roll(s[i],s[i+tz],0,sh1,tz);",
-			"         sh2=roll(s[i],s[i+tz],1,sh2,tz);",
-			"         if(th1==sh1 and th2==sh2) return i+1;",
-			"      }",
-			"      return -1;",
-			"   }",
-			"};",
-			"",
-		],
-	},
-	"Kosaraju": {
-		"prefix": "ksrj",
-		"body": [
-			"struct Ksrj {",
-			"   ve<vll> g,rg;",
-			"   vll vs,sk,p;",
-			"   ll n;",
-			"",
-			"   Ksrj(ll _n,ve<vll> &_g,ve<vll> &_rg) {",
-			"      n=_n; g=_g; rg=_rg;",
-			"      p=vs=vll(n+1,0); sk={};",
-			"   }",
-			"",
-			"   void dfs(ll u,ll P,ve<vll> &g) {",
-			"      vs[u]=1; p[u]=P;",
-			"      for(ll v:g[u])",
-			"         if(!vs[v])",
-			"            dfs(v,P,g);",
-			"      if(P==-1) sk.push_back(u);",
-			"   }",
-			"",
-			"   vll go() {",
-			"      ll i,u;",
-			"      for(i=1; i<=n; i++)",
-			"         if(!vs[i])",
-			"            dfs(i,-1,g);",
-			"      p=vs=vll(n+1,0);",
-			"      for(; sk.size(); sk.pop_back()){",
-			"         u=sk.back();",
-			"         if(!vs[u])",
-			"            dfs(u,u,rg);",
-			"      }",
-			"      return p;",
-			"   }",
-			"};",
-		],
-	},
-	"Tarjan": {
-		"prefix": "tarjan",
-		"body": [
-			"struct Tarjan {",
-			"   ll n,time;",
-			"   vll sk,vs,skItm,et,lt,fat;",
-			"   ve<vll> g;",
-			"",
-			"   Tarjan(ll _n,ve<vll> &_g) {",
-			"      n=_n; g=_g;",
-			"   }",
-			"",
-			"   void dfs(ll u) {",
-			"      et[u]=lt[u]=++time;",
-			"      sk.pb(u); skItm[u]=1;",
-			"",
-			"      for(ll v:g[u]) {",
-			"         if(et[v]==-1) {",
-			"            dfs(v);",
-			"            lt[u]=min(lt[u],lt[v]);",
-			"         } else if(skItm[v]) {",
-			"            lt[u]=min(lt[u],et[v]);",
-			"         }",
-			"      }",
-			"",
-			"      if(lt[u]==et[u]) {",
-			"         ll back=-1;",
-			"         for(; back!=u; sk.pop_back()) {",
-			"            back=sk.back();",
-			"            fat[back]=u;",
-			"            skItm[back]=0;",
-			"         }",
-			"      }",
-			"   }",
-			"",
-			"   vll go() {",
-			"      ll i;",
-			"      time=0;",
-			"      fat=et=lt=vll(n+1,-1);",
-			"      skItm=vll(n+1,0);",
-			"      for(i=0; i<=n; i++) {",
-			"         if(et[i]==-1) dfs(i);",
-			"      }",
-			"      return fat;",
-			"   }",
-			"",
-			"};",
-		],
-	},
-	"guv": {
-		"prefix": "guv",
-		"body": [
-			"g[u].pb(v); g[v].pb(u);",
-		],
-	},
-	"yes": {
-		"prefix": "yes",
-		"body": [
-		  "cout<<\"YES\\n\";",
-		],
-	},
-	"binary search": {
-		"prefix": "bs",
-		"body": [
-		  "ll b_s(ll l,ll r){",
-		  "   ll m;$1",
-		  "   for(; l<r; ){",
-		  "      m=l+r>>1;",
-		  "      if(chk(m)) r=m;",
-		  "      else l=m+1;",
-		  "   }",
-		  "   return l;",
-		  "}",
-		],
-	}
-	
- 
- 
+  "Main template": {
+    "prefix": "aa",
+    "body": [
+      "#include<bits/stdc++.h>",
+      "",
+      "using namespace std;",
+      "",
+      "#define fastio            ios_base::sync_with_stdio(false); cin.tie(NULL);",
+      "#define aa                auto",
+      "#define cn                const",
+      "#define ll                long long",
+      "#define ld                long double",
+      "#define fr                first",
+      "#define sc                second",
+      "#define pll               pair<ll,ll>",
+      "#define tll               tuple<ll,ll,ll>",
+      "#define vll               vector<ll>",
+      "#define bp(x)             __builtin_popcountll(x)",
+      "#define all(a)            a.begin(),a.end()",
+      "#define arr(a)            a.rbegin(),a.rend()",
+      "#define cb(a,i)           (a>>i&1)",
+      "#define mp(a,b)           make_pair(a,b)",
+      "#define mt(a,b,c)         make_tuple(a,b,c)",
+      "#define lb(a)             lower_bound(a)",
+      "#define ub(a)             upper_bound(a)",
+      "#define pb(a)             push_back(a)",
+      "#define ve                vector",
+      "",
+      "",
+      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<\"\\n\";}",
+      "void err(istream_iterator<string> it) {}",
+      "template<typename T, typename... Args>",
+      "void err(istream_iterator<string> it, T a, Args... args) {",
+      "   cerr << *it << \"=\" << a << \" ! \";",
+      "   err(++it, args...);",
+      "}",
+      "",
+      "cn ll N=5e5+7,N1=25,inf=2e18;",
+      "cn ld eps=1e-8;",
+      "cn ll M=1e9+7;",
+      "//cn ll M=998244353;",
+      "ll n;",
+      "",
+      "int main(){",
+      "   fastio",
+      "   $0",
+      "}",
+      ""
+    ]
+  },
+  "input": {
+    "prefix": "i",
+    "body": [
+      "cin>>$0"
+    ]
+  },
+  "Output": {
+    "prefix": "o",
+    "body": [
+      "cout<<$0"
+    ]
+  },
+  "for loop": {
+    "prefix": "f",
+    "body": [
+      "for($0)"
+    ]
+  },
+  "string": {
+    "prefix": "g",
+    "body": [
+      "string$0"
+    ]
+  },
+  "memset": {
+    "prefix": "mm",
+    "body": [
+      "memset($1,$2,sizeof($1));"
+    ]
+  },
+  "next line": {
+    "prefix": "nl",
+    "body": [
+      "<<\"\\n\""
+    ]
+  },
+  "my if": {
+    "prefix": "iff",
+    "body": [
+      "if($0)"
+    ]
+  },
+  "return": {
+    "prefix": "r",
+    "body": [
+      "return"
+    ]
+  },
+  "min": {
+    "prefix": "mn",
+    "body": [
+      "min($0)"
+    ]
+  },
+  "min_tree": {
+    "prefix": "mtree",
+    "body": [
+      "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
+      "   if(r<b or e<l) return inf;",
+      "   if(l<=b and e<=r) return T[u];",
+      "   ll m=b+e>>1;",
+      "   return min(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
+      "}",
+      "",
+      "void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
+      "   if(i<b or e<i) return;",
+      "   if(i<=b and e<=i){T[u]+=v; return;}",
+      "   ll m=b+e>>1;",
+      "   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
+      "   T[u]=min(T[u<<1],T[u<<1|1]);",
+      "}"
+    ]
+  },
+  "check": {
+    "prefix": "chk",
+    "body": [
+      "ll chk(){",
+      "   $0",
+      "}"
+    ]
+  },
+  "sex": {
+    "prefix": "sex",
+    "body": [
+      "ll sex($1){",
+      "   $0",
+      "}"
+    ]
+  },
+  "insert": {
+    "prefix": "in",
+    "body": [
+      "insert($0)"
+    ]
+  },
+  "max": {
+    "prefix": "mx",
+    "body": [
+      "max($0)"
+    ]
+  },
+  "setprecision": {
+    "prefix": "stp",
+    "body": [
+      "cout<<fixed<<setprecision($1);"
+    ]
+  },
+  "db": {
+    "prefix": "d",
+    "body": [
+      "db($0);"
+    ]
+  },
+  "fio": {
+    "prefix": "fio",
+    "body": [
+      "for(i=0; i<$0; i++)"
+    ]
+  },
+  "fjo": {
+    "prefix": "fjo",
+    "body": [
+      "for(j=0; j<$0; j++)"
+    ]
+  },
+  "fko": {
+    "prefix": "fko",
+    "body": [
+      "for(k=0; k<$0; k++)"
+    ]
+  },
+  "fin": {
+    "prefix": "fin",
+    "body": [
+      "for(i=1; i<=$1; i++)"
+    ]
+  },
+  "fjn": {
+    "prefix": "fjn",
+    "body": [
+      "for(j=1; j<=$1; j++)"
+    ]
+  },
+  "fkn": {
+    "prefix": "fkn",
+    "body": [
+      "for(k=1; k<=$1; k++)"
+    ]
+  },
+  "dsu": {
+    "prefix": "dsu",
+    "body": [
+      "struct DSU{",
+      "   vll p,h;",
+      "   ll com,i;",
+      "   DSU(ll n){",
+      "      com=n;",
+      "      p=h=vll(n+3,1);",
+      "      for(i=0; i<=n; i++) p[i]=i;",
+      "   }",
+      "   ll get(ll x){",
+      "      return p[x]=p[x]==x?x:get(p[x]);",
+      "   }",
+      "   ll unite(ll u,ll v){",
+      "      u=get(u); v=get(v);",
+      "      if(u==v) return 0;",
+      "      if(h[u]<h[v]) swap(u,v);",
+      "      p[v]=u; h[u]+=h[v]; h[v]=0;",
+      "      --com;",
+      "      return 1;",
+      "   }",
+      "};"
+    ]
+  },
+  "no": {
+    "prefix": "no",
+    "body": [
+      "cout<<\"NO\\n\";"
+    ]
+  },
+  "yesNo": {
+    "prefix": "yn",
+    "body": [
+      "cout<<($0?\"YES\\n\":\"NO\\n\");"
+    ]
+  },
+  "aSpace": {
+    "prefix": "as",
+    "body": [
+      "<<\" \"<<"
+    ]
+  },
+  "swap": {
+    "prefix": "sw",
+    "body": [
+      "swap($0);"
+    ]
+  },
+  "pushBack": {
+    "prefix": "p",
+    "body": [
+      "pb($0)"
+    ]
+  },
+  "makePair": {
+    "prefix": "mp",
+    "body": [
+      "mp($0)"
+    ]
+  },
+  "makeTuple": {
+    "prefix": "mt",
+    "body": [
+      "mt($0)"
+    ]
+  },
+  "dfs": {
+    "prefix": "dfs",
+    "body": [
+      "void dfs(ll u,ll p) {",
+      "   for(ll v:g[u]) if(v!=p) {",
+      "      dfs(v,u);",
+      "      $0",
+      "   }",
+      "}"
+    ]
+  },
+  "while": {
+    "prefix": "ww",
+    "body": [
+      "while($0)"
+    ]
+  },
+  "size": {
+    "prefix": "z",
+    "body": [
+      "size()"
+    ]
+  },
+  "tt": {
+    "prefix": "tt",
+    "body": [
+      "ll tt; cin>>tt;",
+      "while(tt--) {",
+      "   $0",
+      "}"
+    ]
+  },
+  "sn": {
+    "prefix": "sn",
+    "body": [
+      "<<\" \\n\"[i==n$0];"
+    ]
+  },
+  "fwt": {
+    "prefix": "fwt",
+    "body": [
+      "void upd(vll &t,ll i,ll v) {for(; i<t.size(); i+=i&-i) t[i]+=v;}",
+      "ll ask(vll &t,ll i) {ll R=0; for(; i>0; i-=i&-i) R+=t[i]; return R;}"
+    ]
+  },
+  "segTree": {
+    "prefix": "stree",
+    "body": [
+      "ll mrg(ll x,ll y) {",
+      "   return min$0(x,y);",
+      "}",
+      "",
+      "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
+      "   if(r<b or e<l) return inf;",
+      "   if(l<=b and e<=r) return T[u];",
+      "   ll m=b+e>>1;",
+      "   return mrg(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
+      "}",
+      "",
+      "void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
+      "   if(i<b or e<i) return;",
+      "   if(i<=b and e<=i){T[u]+=v; return;}",
+      "   ll m=b+e>>1;",
+      "   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
+      "   T[u]=mrg(T[u<<1],T[u<<1|1]);",
+      "}"
+    ]
+  },
+  "srk2": {
+    "prefix": "srk2",
+    "body": [
+      "void srk2(ll a[],ll n,ll b[],ll m) {",
+      "   set<ll> s; map<ll,ll> ma; ll i;",
+      "   for(i=1; i<=n; i++) s.insert(a[i]);",
+      "   for(i=1; i<=m; i++) s.insert(b[i]);",
+      "   i=0;",
+      "   for(ll j:s) ma[j]=++i;",
+      "   for(i=1; i<=n; i++) a[i]=ma[a[i]];",
+      "   for(i=1; i<=m; i++) b[i]=ma[b[i]];",
+      "}"
+    ]
+  },
+  "continue": {
+    "prefix": "con",
+    "body": [
+      "continue;"
+    ]
+  },
+  "hash": {
+    "prefix": "hash",
+    "body": [
+      "struct Hash {",
+      "   ve<ve<ll>> pv;",
+      "   ve<ll> b={122,123};",
+      "   ",
+      "   ll rabinKarpHash(const string &s,ll bi) {",
+      "      ll n=s.size(),ans=0,i;",
+      "      for(i=0; i<n; i++) ans=add(ans,mul(s[i],pv[bi][n-i-1]));",
+      "      return ans;",
+      "   }",
+      "",
+      "   ll roll(char c1,char c2,ll bi,ll sh,ll tz) {",
+      "      sh=sub(sh,mul(c1,pv[bi][tz-1]));",
+      "      sh=mul(sh,b[bi]);",
+      "      sh=add(sh,c2);",
+      "      return sh;",
+      "   }",
+      "",
+      "   ll go(const string &s,const string &t) {",
+      "      ll sz=s.size(),i,j,tz=t.size();",
+      "      if(tz>sz) return -1;",
+      "",
+      "      pv=ve<ve<ll>> (2,ve<ll>(sz+7));",
+      "      for(i=0; i<2; i++) for(j=1,pv[i][0]=1; j<sz+7; j++) pv[i][j]=mul(pv[i][j-1],b[i]);",
+      "",
+      "      ll th1=rabinKarpHash(t,0),sh1=rabinKarpHash(s.substr(0,tz),0);",
+      "      ll th2=rabinKarpHash(t,1),sh2=rabinKarpHash(s.substr(0,tz),1);",
+      "",
+      "      if(th1==sh1 and th2==sh2) return 0;",
+      "      for(i=0; i+tz<sz; i++) {",
+      "         sh1=roll(s[i],s[i+tz],0,sh1,tz);",
+      "         sh2=roll(s[i],s[i+tz],1,sh2,tz);",
+      "         if(th1==sh1 and th2==sh2) return i+1;",
+      "      }",
+      "      return -1;",
+      "   }",
+      "};",
+      ""
+    ]
+  },
+  "Kosaraju": {
+    "prefix": "ksrj",
+    "body": [
+      "struct Ksrj {",
+      "   ve<vll> g,rg;",
+      "   vll vs,sk,p;",
+      "   ll n;",
+      "",
+      "   Ksrj(ll _n,ve<vll> &_g,ve<vll> &_rg) {",
+      "      n=_n; g=_g; rg=_rg;",
+      "      p=vs=vll(n+1,0); sk={};",
+      "   }",
+      "",
+      "   void dfs(ll u,ll P,ve<vll> &g) {",
+      "      vs[u]=1; p[u]=P;",
+      "      for(ll v:g[u])",
+      "         if(!vs[v])",
+      "            dfs(v,P,g);",
+      "      if(P==-1) sk.push_back(u);",
+      "   }",
+      "",
+      "   vll go() {",
+      "      ll i,u;",
+      "      for(i=1; i<=n; i++)",
+      "         if(!vs[i])",
+      "            dfs(i,-1,g);",
+      "      p=vs=vll(n+1,0);",
+      "      for(; sk.size(); sk.pop_back()){",
+      "         u=sk.back();",
+      "         if(!vs[u])",
+      "            dfs(u,u,rg);",
+      "      }",
+      "      return p;",
+      "   }",
+      "};"
+    ]
+  },
+  "Tarjan": {
+    "prefix": "tarjan",
+    "body": [
+      "struct Tarjan {",
+      "   ll n,time;",
+      "   vll sk,vs,skItm,et,lt,fat;",
+      "   ve<vll> g;",
+      "",
+      "   Tarjan(ll _n,ve<vll> &_g) {",
+      "      n=_n; g=_g;",
+      "   }",
+      "",
+      "   void dfs(ll u) {",
+      "      et[u]=lt[u]=++time;",
+      "      sk.pb(u); skItm[u]=1;",
+      "",
+      "      for(ll v:g[u]) {",
+      "         if(et[v]==-1) {",
+      "            dfs(v);",
+      "            lt[u]=min(lt[u],lt[v]);",
+      "         } else if(skItm[v]) {",
+      "            lt[u]=min(lt[u],et[v]);",
+      "         }",
+      "      }",
+      "",
+      "      if(lt[u]==et[u]) {",
+      "         ll back=-1;",
+      "         for(; back!=u; sk.pop_back()) {",
+      "            back=sk.back();",
+      "            fat[back]=u;",
+      "            skItm[back]=0;",
+      "         }",
+      "      }",
+      "   }",
+      "",
+      "   vll go() {",
+      "      ll i;",
+      "      time=0;",
+      "      fat=et=lt=vll(n+1,-1);",
+      "      skItm=vll(n+1,0);",
+      "      for(i=0; i<=n; i++) {",
+      "         if(et[i]==-1) dfs(i);",
+      "      }",
+      "      return fat;",
+      "   }",
+      "",
+      "};"
+    ]
+  },
+  "guv": {
+    "prefix": "guv",
+    "body": [
+      "g[u].pb(v); g[v].pb(u);"
+    ]
+  },
+  "dpf": {
+    "prefix": "dpf",
+    "body": [
+      "ll dpf(ll i,ll k) {",
+      "   ll &R=f[i][k];",
+      "   if(R!=-1) return R;",
+      "   $0",
+      "}"
+    ]
+  },
+  "yes": {
+    "prefix": "yes",
+    "body": [
+      "cout<<\"YES\\n\";"
+    ]
+  },
+  "binary search": {
+    "prefix": "bs",
+    "body": [
+      "ll b_s(ll l,ll r){",
+      "   ll m;$1",
+      "   for(; l<r; ){",
+      "      m=l+r>>1;",
+      "      if(chk(m)) r=m;",
+      "      else l=m+1;",
+      "   }",
+      "   return l;",
+      "}"
+    ]
+  },
+  "add": {
+    "prefix": "add",
+    "description": "",
+    "body": [
+      "ll add(ll a,ll b){return (a+b)%M;}"
+    ]
+  },
+  "aa": {
+    "prefix": "aa\r",
+    "description": "",
+    "body": [
+      "\r",
+      "#include<bits/stdc++.h>\r",
+      "\r",
+      "using namespace std;\r",
+      "\r",
+      "#define fastio            ios_base::sync_with_stdio(false); cin.tie(NULL);\r",
+      "#define aa                auto\r",
+      "#define cn                const\r",
+      "#define ll                long long\r",
+      "#define ld                long double\r",
+      "#define fr                first\r",
+      "#define sc                second\r",
+      "#define pll               pair<ll,ll>\r",
+      "#define tll               tuple<ll,ll,ll>\r",
+      "#define vll               vector<ll>\r",
+      "#define bp(x)             __builtin_popcountll(x)\r",
+      "#define all(a)            a.begin(),a.end()\r",
+      "#define arr(a)            a.rbegin(),a.rend()\r",
+      "#define cb(a,i)           (a>>i&1)\r",
+      "#define mp(a,b)           make_pair(a,b)\r",
+      "#define mt(a,b,c)         make_tuple(a,b,c)\r",
+      "#define lb(a)             lower_bound(a)\r",
+      "#define ub(a)             upper_bound(a)\r",
+      "#define pb(a)             push_back(a)\r",
+      "#define ve                vector\r",
+      "\r",
+      "\r",
+      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<\"\\n\";}\r",
+      "void err(istream_iterator<string> it) {}\r",
+      "template<typename T, typename... Args>\r",
+      "void err(istream_iterator<string> it, T a, Args... args) {\r",
+      "   cerr << *it << \"=\" << a << \" ! \";\r",
+      "   err(++it, args...);\r",
+      "}\r",
+      "\r",
+      "cn ll N=5e5+7,N1=25,inf=2e18;\r",
+      "cn ld eps=1e-8;\r",
+      "cn ll M=1e9+7;\r",
+      "//cn ll M=998244353;\r",
+      "ll n;\r",
+      "\r",
+      "int main(){\r",
+      "   fastio\r",
+      "   $0\r",
+      "}\r",
+      ""
+    ]
+  },
+  "mod": {
+    "prefix": "mod\r",
+    "description": "",
+    "body": [
+      "\r",
+      "\r",
+      "\r",
+      "ll bmd(ll a,ll p){\r",
+      "   return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;\r",
+      "}\r",
+      "ll inv(ll n){return bmd(n,M-2);}\r",
+      "ll mul(ll a,ll b){return a*1ll*b%M;}\r",
+      "ll add(ll a,ll b){if(a>M) a%M; if(b>M) b%M; a+=b; return a<M?a:a-M;}\r",
+      "ll dvd(ll a,ll b){return mul(a,inv(b));}\r",
+      "ll sub(ll a,ll b){return add(a,M-b);}"
+    ]
+  },
+  "vd": {
+    "prefix": "vd",
+    "description": "",
+    "body": [
+      "void"
+    ]
+  },
+  "ncr": {
+    "prefix": "ncr\r",
+    "description": "",
+    "body": [
+      "struct NCR {\r",
+      "   vll F;\r",
+      "   ll N;\r",
+      "   NCR(ll n) {\r",
+      "      N=n; F=vll(n+7,1);\r",
+      "      for(ll i=1; i<=n; i++) F[i]=mul(i,F[i-1]);\r",
+      "   }\r",
+      "   ll go(ll n,ll r) {\r",
+      "      if(r>n or n>N) {\r",
+      "         cout<<\"Wrong Input\\n\";\r",
+      "         return -1;\r",
+      "      }\r",
+      "      ll ans=dvd(F[n],mul(F[r],F[n-r]));\r",
+      "      return ans;\r",
+      "   }\r",
+      "};"
+    ]
+  },
+  "smod": {
+    "prefix": "smod\r",
+    "description": "",
+    "body": [
+      "struct Mod {\r",
+      "   ll a;\r",
+      "   Mod() {a=0;}\r",
+      "   Mod(ll _a) {a=_a;}\r",
+      "   ll bmd(ll a,ll p){\r",
+      "      return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;\r",
+      "   }\r",
+      "   Mod operator ^ (Mod p) { return Mod(bmd(a,p.a));}\r",
+      "   Mod operator * (Mod p) { Mod ans(a*1ll*p.a%M); return ans;}\r",
+      "   Mod operator + (Mod p) { ll b=a+p.a; return Mod(b<M?b:b-M);}\r",
+      "   Mod operator - (Mod p) { ll b=a+M-p.a; return Mod(b);}\r",
+      "   Mod operator / (Mod p) { ll b=bmd(p.a,M-2); return Mod(a*1ll*b%M);}\r",
+      "\r",
+      "   Mod operator ^= (Mod p) { return *this=(*this)^p;}\r",
+      "   Mod operator *= (Mod p) { return *this=(*this)*p;}\r",
+      "   Mod operator += (Mod p) { return *this=(*this)+p;}\r",
+      "   Mod operator -= (Mod p) { return *this=(*this)-p;}\r",
+      "   Mod operator /= (Mod p) { return *this=(*this)/p;}\r",
+      "\r",
+      "   Mod operator = (ll b){a=b; return *this;}\r",
+      "   Mod operator = (Mod b){a=b.a; return *this;}\r",
+      "};"
+    ]
+  }
 }
