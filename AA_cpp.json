@@ -87,6 +87,7 @@
   },
   "my if": {
     "prefix": "iff",
+    "description": "",
     "body": [
       "if($0)"
     ]
@@ -605,19 +606,19 @@
     "description": "",
     "body": [
       "struct NCR {\r",
-      "   vll F;\r",
+      "   ve<Mod> F;\r",
       "   ll N;\r",
       "   NCR(ll n) {\r",
-      "      N=n; F=vll(n+7,1);\r",
-      "      for(ll i=1; i<=n; i++) F[i]=mul(i,F[i-1]);\r",
+      "      N=n; F=ve<Mod>(n+7,1);\r",
+      "      for(ll i=1; i<=n; i++) F[i]=F[i-1]*i;\r",
       "   }\r",
       "   ll go(ll n,ll r) {\r",
       "      if(r>n or n>N) {\r",
       "         cout<<\"Wrong Input\\n\";\r",
       "         return -1;\r",
       "      }\r",
-      "      ll ans=dvd(F[n],mul(F[r],F[n-r]));\r",
-      "      return ans;\r",
+      "      Mod ans=F[n]/(F[r]*F[n-r]);\r",
+      "      return ans.a;\r",
       "   }\r",
       "};"
     ]
