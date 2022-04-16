@@ -479,7 +479,6 @@
     "prefix": "aa\r",
     "description": "",
     "body": [
-      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -581,9 +580,9 @@
       "   ll a;\r",
       "   Mod() {a=0;}\r",
       "   Mod(ll _a) {a=_a;}\r",
-      "   ll bmd(ll a,ll p){\r",
-      "      return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;\r",
-      "   }\r",
+      "   \r",
+      "   ll bmd(ll a,ll p){ return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;}\r",
+      "\r",
       "   Mod operator ^ (Mod p) { return Mod(bmd(a,p.a));}\r",
       "   Mod operator * (Mod p) { Mod ans(a*1ll*p.a%M); return ans;}\r",
       "   Mod operator + (Mod p) { ll b=a+p.a; return Mod(b<M?b:b-M);}\r",
@@ -596,9 +595,30 @@
       "   Mod operator -= (Mod p) { return *this=(*this)-p;}\r",
       "   Mod operator /= (Mod p) { return *this=(*this)/p;}\r",
       "\r",
-      "   Mod operator = (ll b){a=b; return *this;}\r",
-      "   Mod operator = (Mod b){a=b.a; return *this;}\r",
-      "};"
+      "   Mod operator ++() {a+=1; return *this;}\r",
+      "   Mod operator --() {a-=1; return *this;}\r",
+      "   Mod operator ++(int) {Mod b=*this; ++(*this); return b;}\r",
+      "   Mod operator --(int) {Mod b=*this; --(*this); return b;}\r",
+      "\r",
+      "   Mod operator = (ll p){a=p; return *this;}\r",
+      "   Mod operator = (Mod p){a=p.a; return *this;}\r",
+      "\r",
+      "   bool operator == (Mod p) { return a==p.a;}\r",
+      "   bool operator <= (Mod p) { return a<=p.a;}\r",
+      "   bool operator >= (Mod p) { return a>=p.a;}\r",
+      "   bool operator < (Mod p) { return a<p.a;}\r",
+      "   bool operator > (Mod p) { return a>p.a;}\r",
+      "   \r",
+      "};\r",
+      "istream& operator >> (istream& is, Mod& a) { ll b; if(is>>b) a=b; return is;}\r",
+      "ostream& operator << (ostream& os, const Mod& a) { return os<<a.a;}"
+    ]
+  },
+  "op": {
+    "prefix": "op",
+    "description": "",
+    "body": [
+      "operator"
     ]
   }
 }
