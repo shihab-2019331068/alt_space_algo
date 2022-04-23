@@ -479,6 +479,7 @@
     "prefix": "aa\r",
     "description": "",
     "body": [
+      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -517,7 +518,8 @@
       "cn ld eps=1e-8;\r",
       "cn ll M=1e9+7;\r",
       "//cn ll M=998244353;\r",
-      "ll n;\r",
+      "ll a[N],b[N];\r",
+      "ll n,i,j,k,x;\r",
       "\r",
       "int main(){\r",
       "   fastio\r",
@@ -619,6 +621,13 @@
     "description": "",
     "body": [
       "operator"
+    ]
+  },
+  "jn": {
+    "prefix": "jn",
+    "description": "",
+    "body": [
+      "cout <<\"\\n\";"
     ]
   }
 }
