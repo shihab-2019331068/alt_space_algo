@@ -480,6 +480,8 @@
     "description": "",
     "body": [
       "\r",
+      "\r",
+      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -519,7 +521,8 @@
       "cn ll M=1e9+7;\r",
       "//cn ll M=998244353;\r",
       "ll a[N],b[N];\r",
-      "ll n,i,j,k,x;\r",
+      "string s;\r",
+      "ll n,m,i,j,k,x,u,v;\r",
       "\r",
       "int main(){\r",
       "   fastio\r",
@@ -532,9 +535,6 @@
     "prefix": "mod\r",
     "description": "",
     "body": [
-      "\r",
-      "\r",
-      "\r",
       "ll bmd(ll a,ll p){\r",
       "   return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;\r",
       "}\r",
@@ -578,17 +578,30 @@
     "prefix": "smod\r",
     "description": "",
     "body": [
+      "\r",
+      "vll F;\r",
       "struct Mod {\r",
       "   ll a;\r",
       "   Mod() {a=0;}\r",
       "   Mod(ll _a) {a=_a;}\r",
       "   \r",
       "   ll bmd(ll a,ll p){ return p?bmd(a*a%M,p>>1)*(p&1?a:1)%M:1;}\r",
+      "   Mod fct(){\r",
+      "      if(F.size()==0) F.pb(1);\r",
+      "      for(; F.size()<=a; ) {\r",
+      "         Mod x=F.back();\r",
+      "         x*=F.size();\r",
+      "         F.pb(x.a);\r",
+      "      }\r",
+      "      return F[a];\r",
+      "   }\r",
+      "\r",
+      "   Mod operator ! () {return fct();}\r",
       "\r",
       "   Mod operator ^ (Mod p) { return Mod(bmd(a,p.a));}\r",
       "   Mod operator * (Mod p) { Mod ans(a*1ll*p.a%M); return ans;}\r",
       "   Mod operator + (Mod p) { ll b=a+p.a; return Mod(b<M?b:b-M);}\r",
-      "   Mod operator - (Mod p) { ll b=a+M-p.a; return Mod(b);}\r",
+      "   Mod operator - (Mod p) { ll b=a+M-p.a; return Mod(b<M?b:b-M);}\r",
       "   Mod operator / (Mod p) { ll b=bmd(p.a,M-2); return Mod(a*1ll*b%M);}\r",
       "\r",
       "   Mod operator ^= (Mod p) { return *this=(*this)^p;}\r",
@@ -612,7 +625,7 @@
       "   bool operator > (Mod p) { return a>p.a;}\r",
       "   \r",
       "};\r",
-      "istream& operator >> (istream& is, Mod& a) { ll b; if(is>>b) a=b; return is;}\r",
+      "istream& operator >> (istream& is, Mod& a) { ll b; if(is>>b) a.a=b; return is;}\r",
       "ostream& operator << (ostream& os, const Mod& a) { return os<<a.a;}"
     ]
   },
@@ -628,6 +641,89 @@
     "description": "",
     "body": [
       "cout <<\"\\n\";"
+    ]
+  },
+  "st": {
+    "prefix": "st",
+    "description": "",
+    "body": [
+      "struct $1 {",
+      "   $0",
+      "};"
+    ]
+  },
+  "so": {
+    "prefix": "so",
+    "description": "",
+    "body": [
+      "sort($0)"
+    ]
+  },
+  "mo": {
+    "prefix": "mo\r",
+    "description": "",
+    "body": [
+      "\r",
+      "struct Q{\r",
+      "   int l,r,k,R=350;\r",
+      "\r",
+      "   bool operator < (Q b) {\r",
+      "      if(l/R != b.l/R) return l<b.l;\r",
+      "      return r<b.r;\r",
+      "   }\r",
+      "};"
+    ]
+  },
+  "lazy": {
+    "prefix": "lazy\r",
+    "description": "",
+    "body": [
+      "struct Lazy {\r",
+      "   vll lz,T;\r",
+      "   ll outOfRange=inf;\r",
+      "\r",
+      "   Lazy(ll n) {\r",
+      "      T=lz=vll(n<<3);\r",
+      "   }\r",
+      "\r",
+      "   void push(ll u){\r",
+      "      ll u1=u<<1,u2=u1|1, v=lz[u];\r",
+      "      T[u1]+=v; T[u2]+=v; lz[u1]+=v; lz[u2]+=v; lz[u]=0;\r",
+      "   }\r",
+      "\r",
+      "   ll mrg(ll x,ll y) { return min(x,y);}\r",
+      "\r",
+      "   ll rnq(ll l,ll r,ll b=1,ll e=n,ll u=1){\r",
+      "      push(u);\r",
+      "      if(r<b or e<l) return outOfRange;\r",
+      "      if(l<=b and e<=r) return T[u];\r",
+      "      ll m=b+e>>1;\r",
+      "      return mrg(rnq(l,r,b,m,u<<1),rnq(l,r,m+1,e,u<<1|1));\r",
+      "   }\r",
+      "\r",
+      "   void upd(ll l,ll r,ll v,ll b=1,ll e=n,ll u=1){\r",
+      "      push(u);\r",
+      "      if(r<b or e<l) return;\r",
+      "      if(l<=b and e<=r){lz[u]+=v; T[u]+=v; return;}\r",
+      "      ll m=b+e>>1;\r",
+      "      upd(l,r,v,b,m,u<<1); upd(l,r,v,m+1,e,u<<1|1);\r",
+      "      T[u]=mrg(T[u<<1],T[u<<1|1]);\r",
+      "   }\r",
+      "};"
+    ]
+  },
+  "ex": {
+    "prefix": "ex",
+    "description": "",
+    "body": [
+      "exit(0);"
+    ]
+  },
+  "all": {
+    "prefix": "all",
+    "description": "",
+    "body": [
+      "all($0)"
     ]
   }
 }
