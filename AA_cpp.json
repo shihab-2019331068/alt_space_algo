@@ -263,25 +263,26 @@
   },
   "segTree": {
     "prefix": "stree",
+    "description": "",
     "body": [
-      "ll mrg(ll x,ll y) {",
-      "   return min$0(x,y);",
-      "}",
-      "",
-      "ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
-      "   if(r<b or e<l) return inf;",
-      "   if(l<=b and e<=r) return T[u];",
-      "   ll m=b+e>>1;",
-      "   return mrg(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
-      "}",
-      "",
-      "void upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
-      "   if(i<b or e<i) return;",
-      "   if(i<=b and e<=i){T[u]+=v; return;}",
-      "   ll m=b+e>>1;",
-      "   upd(i,v,u<<1,b,m); upd(i,v,u<<1|1,m+1,e);",
-      "   T[u]=mrg(T[u<<1],T[u<<1|1]);",
-      "}"
+      "ll segT[N];",
+      "struct SegTree {",
+      "   ll mrg(ll x,ll y) {",
+      "      return min(x,y);",
+      "   }",
+      "   ll rnq(ll l,ll r,ll u=1,ll b=1,ll e=n){",
+      "      if(r<b or e<l) return inf;",
+      "      if(l<=b and e<=r) return segT[u];",
+      "      ll m=b+e>>1;",
+      "      return mrg(rnq(l,r,u<<1,b,m),rnq(l,r,u<<1|1,m+1,e));",
+      "   }",
+      "   ll upd(ll i,ll v,ll u=1,ll b=1,ll e=n){",
+      "      if(i<b or e<i) return;",
+      "      if(i<=b and e<=i){ return segT[u]+=v;}",
+      "      ll m=b+e>>1;",
+      "      return mrg(upd(i,v,u<<1,b,m),upd(i,v,u<<1|1,m+1,e));",
+      "   }",
+      "};"
     ]
   },
   "srk2": {
@@ -480,8 +481,6 @@
     "description": "",
     "body": [
       "\r",
-      "\r",
-      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -516,7 +515,7 @@
       "   err(++it, args...);\r",
       "}\r",
       "\r",
-      "cn ll N=5e5+7,N1=25,inf=2e18;\r",
+      "cn ll N=5e5+7,N1=25,N2=323,inf=2e18;\r",
       "cn ld eps=1e-8;\r",
       "cn ll M=1e9+7;\r",
       "//cn ll M=998244353;\r",
@@ -640,7 +639,7 @@
     "prefix": "jn",
     "description": "",
     "body": [
-      "cout <<\"\\n\";"
+      "cout<<\"\\n\";"
     ]
   },
   "st": {
@@ -678,11 +677,13 @@
     "prefix": "lazy\r",
     "description": "",
     "body": [
+      "\r",
       "struct Lazy {\r",
       "   vll lz,T;\r",
-      "   ll outOfRange=inf;\r",
+      "   ll outOfRange=inf,n;\r",
       "\r",
-      "   Lazy(ll n) {\r",
+      "   Lazy(ll _n) {\r",
+      "      n=_n;\r",
       "      T=lz=vll(n<<3);\r",
       "   }\r",
       "\r",
@@ -693,7 +694,8 @@
       "\r",
       "   ll mrg(ll x,ll y) { return min(x,y);}\r",
       "\r",
-      "   ll rnq(ll l,ll r,ll b=1,ll e=n,ll u=1){\r",
+      "   ll rnq(ll l,ll r){ return rnq(l,r,1,n,1);}\r",
+      "   ll rnq(ll l,ll r,ll b,ll e,ll u){\r",
       "      push(u);\r",
       "      if(r<b or e<l) return outOfRange;\r",
       "      if(l<=b and e<=r) return T[u];\r",
@@ -701,13 +703,13 @@
       "      return mrg(rnq(l,r,b,m,u<<1),rnq(l,r,m+1,e,u<<1|1));\r",
       "   }\r",
       "\r",
-      "   void upd(ll l,ll r,ll v,ll b=1,ll e=n,ll u=1){\r",
+      "   ll upd(ll l,ll r,ll v){ return upd(l,r,v,1,n,1);}\r",
+      "   ll upd(ll l,ll r,ll v,ll b,ll e,ll u){\r",
       "      push(u);\r",
       "      if(r<b or e<l) return;\r",
       "      if(l<=b and e<=r){lz[u]+=v; T[u]+=v; return;}\r",
       "      ll m=b+e>>1;\r",
-      "      upd(l,r,v,b,m,u<<1); upd(l,r,v,m+1,e,u<<1|1);\r",
-      "      T[u]=mrg(T[u<<1],T[u<<1|1]);\r",
+      "      return T[u]=mrg(upd(l,r,v,b,m,u<<1),upd(l,r,v,m+1,e,u<<1|1));\r",
       "   }\r",
       "};"
     ]
@@ -724,6 +726,138 @@
     "description": "",
     "body": [
       "all($0)"
+    ]
+  },
+  "lca": {
+    "prefix": "lca\r",
+    "description": "",
+    "body": [
+      "struct LCA {\r",
+      "   ve<vll> g,P;\r",
+      "   vll h;\r",
+      "   ll n;\r",
+      "   LCA(ve<vll> &_g) {\r",
+      "      ll i; g=_g;\r",
+      "      n=g.size();\r",
+      "      h=vll(n+1); P=ve<vll>(n+1,vll(1,-1));\r",
+      "      for(i=0; i<N1; i++) dfs(1,i);\r",
+      "   }\r",
+      "   void dfs(ll u,ll i) {\r",
+      "      if(i and h[u]>=(1ll<<i)){\r",
+      "         for(; P[u].size()<=i; P[u].pb(0));\r",
+      "         P[u][i]=P[P[u][i-1]][i-1];\r",
+      "      }\r",
+      "      for(ll v:g[u]){\r",
+      "         if(P[u][0]==v) continue;\r",
+      "         P[v][0]=u; h[v]=h[u]+1;\r",
+      "         dfs(v,i);\r",
+      "      }\r",
+      "   }\r",
+      "   ll go(ll l,ll r) {\r",
+      "      ll R,d,i;\r",
+      "      if(h[l]<h[r]) swap(l,r);\r",
+      "      d=h[l]-h[r];\r",
+      "      for(i=0; i<N1; i++)\r",
+      "         if(cb(d,i)) l=P[l][i];\r",
+      "      if(l==r) return l;\r",
+      "      for(i=P[l].size()-1; i+1; i--){\r",
+      "         if(P[l][i]!=P[r][i]){\r",
+      "            l=P[l][i]; r=P[r][i];\r",
+      "         }\r",
+      "      }\r",
+      "      return P[l][0];\r",
+      "   }\r",
+      "};"
+    ]
+  },
+  "sum": {
+    "prefix": "sum",
+    "description": "",
+    "body": [
+      "sum+="
+    ]
+  },
+  "pra": {
+    "prefix": "pra",
+    "description": "",
+    "body": [
+      "void pra(ll a[],ll l,ll r) {",
+      "   ll i;",
+      "   for(i=l; i<=r; i++) cout<<a[i]<<\" \\n\"[i==r];",
+      "}"
+    ]
+  },
+  "ch": {
+    "prefix": "ch",
+    "description": "",
+    "body": [
+      "char"
+    ]
+  },
+  "pb": {
+    "prefix": "pb",
+    "description": "",
+    "body": [
+      "pb($0)"
+    ]
+  },
+  "sieve": {
+    "prefix": "sieve\r",
+    "description": "",
+    "body": [
+      "bool isNotPrime[N];\r",
+      "struct Sieve {\r",
+      "   vll p;\r",
+      "   ll n;\r",
+      "   Sieve(ll _n) {\r",
+      "      ll i,j; n=_n;\r",
+      "      isNotPrime[0]=isNotPrime[1]=true;\r",
+      "      for(i=2; i<=n; i++) if(!isNotPrime[i]) {\r",
+      "         p.pb(i);\r",
+      "         for(j=i*i; j<=n; j++) isNotPrime[j]=true;\r",
+      "      }\r",
+      "   }\r",
+      "   bool isPrime(ll x) {return !isNotPrime[x];}\r",
+      "\r",
+      "};"
+    ]
+  },
+  "sqit": {
+    "prefix": "sqit\r",
+    "description": "",
+    "body": [
+      "void sqit(ll l,ll r) {\r",
+      "   ll i,j;\r",
+      "   if(l/N2==r/N2) {\r",
+      "      for(i=l; i<=r; i++);\r",
+      "   } else {\r",
+      "      for(i=l; i/N2==l/N2; i++);\r",
+      "      for(i=l/N2+1; i<r/N2; i++);\r",
+      "      for(i=r; i/N2==r/N2; i--);\r",
+      "   }\r",
+      "}"
+    ]
+  },
+  "dijkstra": {
+    "prefix": "dijkstra\r",
+    "description": "",
+    "body": [
+      "vll dijkstra(ll u,ll z,aa &d){\r",
+      "   set<pll> s;\r",
+      "   vll d(z+5,inf); d[u]=0;\r",
+      "   for(s={{0,u}}; s.size(); ){\r",
+      "      aa [ul,u]=*s.begin();\r",
+      "      s.erase(s.begin());\r",
+      "      for(aa [v,w]:g[u]){\r",
+      "         if(d[v]>d[u]+w){\r",
+      "            s.erase({d[v],v});\r",
+      "            d[v]=d[u]+w;\r",
+      "            s.insert({d[v],v});\r",
+      "         }\r",
+      "      }\r",
+      "   }\r",
+      "   return d;\r",
+      "}"
     ]
   }
 }
