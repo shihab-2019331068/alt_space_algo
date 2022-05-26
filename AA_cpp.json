@@ -480,7 +480,6 @@
     "prefix": "aa\r",
     "description": "",
     "body": [
-      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -523,9 +522,15 @@
       "string s;\r",
       "ll n,m,i,j,k,x,u,v;\r",
       "\r",
+      "void porn(ll tt) {\r",
+      "   $0\r",
+      "}\r",
+      "\r",
       "int main(){\r",
       "   fastio\r",
-      "   $0\r",
+      "   ll t=1;\r",
+      "   // cin>>t;\r",
+      "   for(ll i=1; i<=t; i++) porn(i);\r",
       "}\r",
       ""
     ]
@@ -577,7 +582,6 @@
     "prefix": "smod\r",
     "description": "",
     "body": [
-      "\r",
       "vll F;\r",
       "struct Mod {\r",
       "   ll a;\r",
@@ -662,7 +666,6 @@
     "prefix": "mo\r",
     "description": "",
     "body": [
-      "\r",
       "struct Q{\r",
       "   int l,r,k,R=350;\r",
       "\r",
@@ -677,7 +680,6 @@
     "prefix": "lazy\r",
     "description": "",
     "body": [
-      "\r",
       "struct Lazy {\r",
       "   vll lz,T;\r",
       "   ll outOfRange=inf,n;\r",
@@ -858,6 +860,49 @@
       "   }\r",
       "   return d;\r",
       "}"
+    ]
+  },
+  "smt": {
+    "prefix": "smt\r",
+    "description": "",
+    "body": [
+      "struct Stn {\r",
+      "   ll tv=0,b=inf,e=-inf;\r",
+      "   Stn *ls,*rs;\r",
+      "   Stn(){}\r",
+      "   Stn(ll _b,ll _e) {\r",
+      "      b=_b; e=_e;\r",
+      "      if(b<e) {\r",
+      "         ll m=b+e>>1;\r",
+      "         ls=new Stn(b,m);\r",
+      "         rs=new Stn(m+1,e);\r",
+      "      }\r",
+      "   }\r",
+      "};\r",
+      "struct SMT {\r",
+      "   ll n,oobVal=0;\r",
+      "   Stn *root;\r",
+      "   SMT(ll _n) {\r",
+      "      n=_n;\r",
+      "      root=new Stn(1,n);\r",
+      "   }\r",
+      "   ll mrg(ll x,ll y) {\r",
+      "      return x+y;\r",
+      "   }\r",
+      "   ll rnq(ll l,ll r) {return rnq(l,r,root);}\r",
+      "   ll rnq(ll l,ll r,Stn *u) {\r",
+      "      if(r<u->b or u->e<l) return oobVal;\r",
+      "      if(l<=u->b and u->e<=r) return u->tv;\r",
+      "      return mrg(rnq(l,r,u->ls),rnq(l,r,u->rs));\r",
+      "   }\r",
+      "   ll upd(ll id,ll val){return upd(id,val,root);}\r",
+      "   ll upd(ll id,ll val,Stn *u) {\r",
+      "      ll b=u->b, e=u->e;\r",
+      "      if(id<b or e<id) return u->tv;\r",
+      "      if(id==b and e==id) { return u->tv+=val;}\r",
+      "      return u->tv=mrg(upd(id,val,u->ls),upd(id,val,u->rs));\r",
+      "   }\r",
+      "};"
     ]
   }
 }
