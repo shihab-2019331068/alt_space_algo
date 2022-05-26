@@ -1,0 +1,47 @@
+struct LTN {
+   ll tv=0,lv=0,b=inf,e=-inf;
+   LTN *ls,*rs;
+   LTN(){}
+   LTN(ll _b,ll _e) {
+      b=_b; e=_e;
+      if(b<e) {
+         ll m=b+e>>1;
+         ls=new LTN(b,m);
+         rs=new LTN(m+1,e);
+      }
+   }
+};
+struct LZT {
+   ll n,oobVal=0;
+   LTN *root;
+   LZT(ll _n) {
+      n=_n;
+      root=new LTN(1,n);
+   }
+   ll mrg(ll x,ll y) {
+      return x+y;
+   }
+   void push(LTN *u) {
+      u->tv+=(u->lv)*((u->e)-(u->b)+1);
+      if(u->b<u->e) {
+         u->ls->lv+=u->lv;
+         u->rs->lv+=u->lv;
+      }
+      u->lv=0;
+   }
+   ll rnq(ll l,ll r) {return rnq(l,r,root);}
+   ll rnq(ll l,ll r,LTN *u) {
+      push(u);
+      if(r<u->b or u->e<l) return oobVal;
+      if(l<=u->b and u->e<=r) return u->tv;
+      return mrg(rnq(l,r,u->ls),rnq(l,r,u->rs));
+   }
+   ll upd(ll l,ll r,ll val){return upd(l,r,val,root);}
+   ll upd(ll l,ll r,ll val,LTN *u) {
+      push(u);
+      ll b=u->b, e=u->e;
+      if(r<b or e<l) return u->tv;
+      if(l<=b and e<=r) { u->lv+=val; push(u); return u->tv;}
+      return u->tv=mrg(upd(l,r,val,u->ls),upd(l,r,val,u->rs));
+   }
+};
