@@ -3,6 +3,9 @@ struct Line {
    ll operator()(ll x){return m*x+b;}
 };
 struct LCNode {
+   // val is the line that
+   // has the minimum y for
+   // x=m=l+r>>1
    Line val;
    LCNode *ls=0,*rs=0;
    LCNode(Line _val): val(_val){}
