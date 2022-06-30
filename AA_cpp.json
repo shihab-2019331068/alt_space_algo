@@ -96,20 +96,23 @@
   },
   "fio": {
     "prefix": "fio",
+    "description": "",
     "body": [
-      "for(i=0; i<$0; i++)"
+      "for(i=0; i<$1; i++)"
     ]
   },
   "fjo": {
     "prefix": "fjo",
+    "description": "",
     "body": [
-      "for(j=0; j<$0; j++)"
+      "for(j=0; j<$1; j++)"
     ]
   },
   "fko": {
     "prefix": "fko",
+    "description": "",
     "body": [
-      "for(k=0; k<$0; k++)"
+      "for(k=0; k<$1; k++)"
     ]
   },
   "fin": {
@@ -429,10 +432,6 @@
     "prefix": "aa\r",
     "description": "",
     "body": [
-      "\r",
-      "\r",
-      "\r",
-      "\r",
       "#include<bits/stdc++.h>\r",
       "\r",
       "using namespace std;\r",
@@ -445,14 +444,15 @@
       "#define fr                first\r",
       "#define sc                second\r",
       "#define pll               pair<ll,ll>\r",
-      "#define tll               pair<pll,ll,ll>\r",
+      "#define tll               pair<pll,ll>\r",
       "#define vll               vector<ll>\r",
       "#define bp(x)             __builtin_popcountll(x)\r",
+      "#define msb(x)            (63-__builtin_clzll(x))\r",
       "#define all(a)            a.begin(),a.end()\r",
       "#define arr(a)            a.rbegin(),a.rend()\r",
       "#define cb(a,i)           (a>>i&1)\r",
       "#define mp(a,b)           make_pair(a,b)\r",
-      "#define mt(a,b,c)         make_tuple(a,b,c)\r",
+      "#define mt(a,b,c)         mp(mp(a,b),c)\r",
       "#define lb(a)             lower_bound(a)\r",
       "#define ub(a)             upper_bound(a)\r",
       "#define pb(a)             push_back(a)\r",
@@ -467,6 +467,12 @@
       "   err(++it, args...);\r",
       "}\r",
       "\r",
+      "template<class L,class R> ostream& operator<<(ostream& out,pair<L,R> &p)        {return out<<\"(\"<<p.fr<<\", \"<<p.sc<<\")\";}\r",
+      "template<class T> ostream& operator<<(ostream& out,vector<T> &v)                {out<<\"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out<<\", \";out<<*it;}return out<<\"]\";}\r",
+      "template<class T> ostream& operator<<(ostream& out,deque<T> &v)                 {out<<\"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out<<\", \";out<<*it;}return out<<\"]\";}\r",
+      "template<class T> ostream& operator<<(ostream& out,set<T> &s)                   {out<<\"{\";for(auto it=s.begin();it!=s.end();++it){if(it!=s.begin())out<<\", \";out<<*it;}return out<<\"}\";}\r",
+      "template<class L,class R> ostream& operator<<(ostream& out,map<L,R> &m)         {out<<\"{\";for(auto it=m.begin();it!=m.end();++it){if(it!=m.begin())out<<\", \";out<<*it;}return out<<\"}\";}\r",
+      "\r",
       "cn ll N=5e5+7,N1=25,N2=323,inf=2e18;\r",
       "cn ld eps=1e-8;\r",
       "cn ll M=1e9+7;\r",
@@ -475,7 +481,7 @@
       "string s;\r",
       "ll n,m,i,j,k,x,u,v;\r",
       "\r",
-      "void porn(ll tt) {\r",
+      "void solve(ll tt) {\r",
       "   $0\r",
       "}\r",
       "\r",
@@ -483,7 +489,7 @@
       "   fastio\r",
       "   ll t=1;\r",
       "   // cin>>t;\r",
-      "   for(ll i=1; i<=t; i++) porn(i);\r",
+      "   for(ll i=1; i<=t; i++) solve(i);\r",
       "}\r",
       ""
     ]
@@ -1163,6 +1169,7 @@
     "prefix": "hld\r",
     "description": "",
     "body": [
+      "\r",
       "template<ll size, ll lg>\r",
       "struct hld {\r",
       "   vector<ll> edges[size];\r",
@@ -1178,7 +1185,7 @@
       "   void init(ll n) {\r",
       "      for(ll i=0; i<n; i++) {\r",
       "         edges[i]={};\r",
-      "         seg_u(1,1,n,i,0);\r",
+      "         seg_u(1,1,n,i+1,0);\r",
       "         chain[i]=i;\r",
       "      }\r",
       "   }\r",
