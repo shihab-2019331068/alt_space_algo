@@ -1,20 +1,22 @@
 {
   "input": {
     "prefix": "i",
+    "description": "",
     "body": [
-      "cin>>$0"
+      "cin >> $0"
     ]
   },
   "Output": {
     "prefix": "o",
     "body": [
-      "cout<<$0"
+      "cout << $0"
     ]
   },
   "for loop": {
     "prefix": "f",
+    "description": "",
     "body": [
-      "for($0)"
+      "for ($0)"
     ]
   },
   "string": {
@@ -26,20 +28,21 @@
   "memset": {
     "prefix": "mm",
     "body": [
-      "memset($1,$2,sizeof($1));"
+      "memset($1, $2, sizeof($1));"
     ]
   },
   "next line": {
     "prefix": "nl",
+    "description": "",
     "body": [
-      "<<\"\\n\""
+      "<< \"\\n\""
     ]
   },
   "my if": {
     "prefix": "iff",
     "description": "",
     "body": [
-      "if($0)"
+      "if ($0)"
     ]
   },
   "return": {
@@ -51,22 +54,22 @@
   "min": {
     "prefix": "mn",
     "body": [
-      "min($0)"
+      "min ($0)"
     ]
   },
   "check": {
     "prefix": "chk",
     "body": [
-      "ll chk(){",
-      "   $0",
+      "ll chk (){",
+      "    $0",
       "}"
     ]
   },
   "sex": {
     "prefix": "sex",
     "body": [
-      "ll sex($1){",
-      "   $0",
+      "ll sex ($1){",
+      "    $0",
       "}"
     ]
   },
@@ -79,58 +82,62 @@
   "max": {
     "prefix": "mx",
     "body": [
-      "max($0)"
+      "max ($0)"
     ]
   },
   "setprecision": {
     "prefix": "stp",
     "body": [
-      "cout<<fixed<<setprecision($1);"
+      "cout << fixed << setprecision($1);"
     ]
   },
   "db": {
     "prefix": "d",
+    "description": "",
     "body": [
-      "db($0);"
+      "db ($0);"
     ]
   },
   "fio": {
     "prefix": "fio",
     "description": "",
     "body": [
-      "for(i=0; i<$1; i++)"
+      "for(i = 0; i < $1; i++)"
     ]
   },
   "fjo": {
     "prefix": "fjo",
     "description": "",
     "body": [
-      "for(j=0; j<$1; j++)"
+      "for (j = 0; j < $1; j++)"
     ]
   },
   "fko": {
     "prefix": "fko",
     "description": "",
     "body": [
-      "for(k=0; k<$1; k++)"
+      "for (k = 0; k < $1; k++)"
     ]
   },
   "fin": {
     "prefix": "fin",
+    "description": "",
     "body": [
-      "for(i=1; i<=$1; i++)"
+      "for (i = 1; i <= $1; i++)"
     ]
   },
   "fjn": {
     "prefix": "fjn",
+    "description": "",
     "body": [
-      "for(j=1; j<=$1; j++)"
+      "for (j = 1; j <= $1; j++)"
     ]
   },
   "fkn": {
     "prefix": "fkn",
+    "description": "",
     "body": [
-      "for(k=1; k<=$1; k++)"
+      "for (k = 1; k <= $1; k++)"
     ]
   },
   "dsu": {
@@ -161,19 +168,19 @@
   "no": {
     "prefix": "no",
     "body": [
-      "cout<<\"NO\\n\";"
+      "cout << \"NO\\n\";"
     ]
   },
   "yesNo": {
     "prefix": "yn",
     "body": [
-      "cout<<($0?\"YES\\n\":\"NO\\n\");"
+      "cout << ($0?\"YES\\n\":\"NO\\n\");"
     ]
   },
   "aSpace": {
     "prefix": "as",
     "body": [
-      "<<\" \"<<"
+      " << \" \" << "
     ]
   },
   "swap": {
@@ -190,8 +197,9 @@
   },
   "makePair": {
     "prefix": "mp",
+    "description": "",
     "body": [
-      "mp($0)"
+      "mp ($0)"
     ]
   },
   "makeTuple": {
@@ -235,7 +243,7 @@
   "sn": {
     "prefix": "sn",
     "body": [
-      "<<\" \\n\"[i==n$0];"
+      " << \" \\n\"[i==n$0];"
     ]
   },
   "fwt": {
@@ -404,7 +412,7 @@
   "yes": {
     "prefix": "yes",
     "body": [
-      "cout<<\"YES\\n\";"
+      "cout << \"YES\\n\";"
     ]
   },
   "binary search": {
@@ -440,6 +448,7 @@
       "#define aa                auto\r",
       "#define cn                const\r",
       "#define ll                long long\r",
+      "#define ull               unsigned long long\r",
       "#define ld                long double\r",
       "#define fr                first\r",
       "#define sc                second\r",
@@ -459,7 +468,7 @@
       "#define ve                vector\r",
       "\r",
       "\r",
-      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<\"\\n\";}\r",
+      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr << \"\\n\";}\r",
       "void err(istream_iterator<string> it) {}\r",
       "template<typename T, typename... Args>\r",
       "void err(istream_iterator<string> it, T a, Args... args) {\r",
@@ -467,29 +476,34 @@
       "   err(++it, args...);\r",
       "}\r",
       "\r",
-      "template<class L,class R> ostream& operator<<(ostream& out,pair<L,R> &p)        {return out<<\"(\"<<p.fr<<\", \"<<p.sc<<\")\";}\r",
-      "template<class T> ostream& operator<<(ostream& out,vector<T> &v)                {out<<\"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out<<\", \";out<<*it;}return out<<\"]\";}\r",
-      "template<class T> ostream& operator<<(ostream& out,deque<T> &v)                 {out<<\"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out<<\", \";out<<*it;}return out<<\"]\";}\r",
-      "template<class T> ostream& operator<<(ostream& out,set<T> &s)                   {out<<\"{\";for(auto it=s.begin();it!=s.end();++it){if(it!=s.begin())out<<\", \";out<<*it;}return out<<\"}\";}\r",
-      "template<class L,class R> ostream& operator<<(ostream& out,map<L,R> &m)         {out<<\"{\";for(auto it=m.begin();it!=m.end();++it){if(it!=m.begin())out<<\", \";out<<*it;}return out<<\"}\";}\r",
+      "template<class L,class R> ostream& operator << (ostream& out,pair<L,R> &p)        {return out << \"(\" << p.fr << \", \" << p.sc << \")\";}\r",
+      "template<class T> ostream& operator << (ostream& out,vector<T> &v)                {out << \"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out << \", \";out << *it;}return out << \"]\";}\r",
+      "template<class T> ostream& operator << (ostream& out,deque<T> &v)                 {out << \"[\";for(auto it=v.begin();it!=v.end();++it){if(it!=v.begin())out << \", \";out << *it;}return out << \"]\";}\r",
+      "template<class T> ostream& operator << (ostream& out,set<T> &s)                   {out << \"{\";for(auto it=s.begin();it!=s.end();++it){if(it!=s.begin())out << \", \";out << *it;}return out << \"}\";}\r",
+      "template<class L,class R> ostream& operator << (ostream& out,map<L,R> &m)         {out << \"{\";for(auto it=m.begin();it!=m.end();++it){if(it!=m.begin())out << \", \";out << *it;}return out << \"}\";}\r",
       "\r",
-      "cn ll N=5e5+7,N1=25,N2=323,inf=2e18;\r",
-      "cn ld eps=1e-8;\r",
-      "cn ll M=1e9+7;\r",
-      "//cn ll M=998244353;\r",
-      "ll a[N],b[N];\r",
+      "cn ll N = 5e5+7, inf = 2e18;\r",
+      "cn ld eps = 1e-8;\r",
+      "cn ll M = 1e9+7;\r",
+      "//cn ll M = 998244353;\r",
+      "\r",
+      "\r",
+      "/******************** Aladeen Matha Faka ***********************/\r",
+      "\r",
+      "\r",
+      "ll a[N], b[N];\r",
       "string s;\r",
-      "ll n,m,i,j,k,x,u,v;\r",
+      "ll n, m, i, j, k, x, u, v;\r",
       "\r",
       "void solve(ll tt) {\r",
-      "   $0\r",
+      "    $0\r",
       "}\r",
       "\r",
-      "int32_t main(){\r",
-      "   fastio\r",
-      "   ll t=1;\r",
-      "   // cin>>t;\r",
-      "   for(ll i=1; i<=t; i++) solve(i);\r",
+      "int32_t main() {\r",
+      "    fastio\r",
+      "    ll t = 1;\r",
+      "    // cin >> t;\r",
+      "    for(ll i = 1; i <= t; i++) solve(i);\r",
       "}\r",
       ""
     ]
@@ -522,7 +536,7 @@
       "\r",
       "ll fact[N];\r",
       "void make_fact() {\r",
-      "   cout<<\"YES\\n\";\r",
+      "   cout << \"YES\\n\";\r",
       "   fact[0]=1;\r",
       "   for(ll i=1; i<N; i++) fact[i]=mul(fact[i-1],i);\r",
       "}\r",
@@ -584,7 +598,7 @@
       "   \r",
       "};\r",
       "istream& operator >> (istream& is, Mod& a) { ll b; if(is>>b) a.a=b; return is;}\r",
-      "ostream& operator << (ostream& os, const Mod& a) { return os<<a.a;}"
+      "ostream& operator << (ostream& os, const Mod& a) { return os << a.a;}"
     ]
   },
   "op": {
@@ -598,7 +612,7 @@
     "prefix": "jn",
     "description": "",
     "body": [
-      "cout<<\"\\n\";"
+      "cout << \"\\n\";"
     ]
   },
   "st": {
@@ -606,7 +620,7 @@
     "description": "",
     "body": [
       "struct $1 {",
-      "   $0",
+      "    $0",
       "};"
     ]
   },
@@ -614,7 +628,7 @@
     "prefix": "so",
     "description": "",
     "body": [
-      "sort($0)"
+      "sort ($0)"
     ]
   },
   "mo": {
@@ -641,11 +655,11 @@
       "\r",
       "   Lazy(ll _n) {\r",
       "      n=_n;\r",
-      "      T=lz=vll(n<<3);\r",
+      "      T=lz=vll(n << 3);\r",
       "   }\r",
       "\r",
       "   void push(ll u){\r",
-      "      ll u1=u<<1,u2=u1|1, v=lz[u];\r",
+      "      ll u1=u << 1,u2=u1|1, v=lz[u];\r",
       "      T[u1]+=v; T[u2]+=v; lz[u1]+=v; lz[u2]+=v; lz[u]=0;\r",
       "   }\r",
       "\r",
@@ -657,7 +671,7 @@
       "      if(r<b or e<l) return outOfRange;\r",
       "      if(l<=b and e<=r) return T[u];\r",
       "      ll m=b+e>>1;\r",
-      "      return mrg(rnq(l,r,b,m,u<<1),rnq(l,r,m+1,e,u<<1|1));\r",
+      "      return mrg(rnq(l,r,b,m,u << 1),rnq(l,r,m+1,e,u << 1|1));\r",
       "   }\r",
       "\r",
       "   ll upd(ll l,ll r,ll v){ return upd(l,r,v,1,n,1);}\r",
@@ -666,7 +680,7 @@
       "      if(r<b or e<l) return;\r",
       "      if(l<=b and e<=r){lz[u]+=v; T[u]+=v; return;}\r",
       "      ll m=b+e>>1;\r",
-      "      return T[u]=mrg(upd(l,r,v,b,m,u<<1),upd(l,r,v,m+1,e,u<<1|1));\r",
+      "      return T[u]=mrg(upd(l,r,v,b,m,u << 1),upd(l,r,v,m+1,e,u << 1|1));\r",
       "   }\r",
       "};"
     ]
@@ -682,7 +696,7 @@
     "prefix": "all",
     "description": "",
     "body": [
-      "all($0)"
+      "all ($0)"
     ]
   },
   "lca": {
@@ -699,7 +713,7 @@
       "      for(ll i=0; i<N1; i++) dfs(1,i);\r",
       "   }\r",
       "   void dfs(ll u,ll i) {\r",
-      "      if(i and h[u]>=(1ll<<i)){\r",
+      "      if(i and h[u]>=(1ll << i)){\r",
       "         for(; P[u].size()<=i; P[u].pb(0));\r",
       "         P[u][i]=P[P[u][i-1]][i-1];\r",
       "      }\r",
@@ -729,7 +743,7 @@
     "prefix": "sum",
     "description": "",
     "body": [
-      "sum+="
+      "sum += "
     ]
   },
   "pra": {
@@ -738,7 +752,7 @@
     "body": [
       "void pra(ll a[],ll l,ll r) {",
       "   ll i;",
-      "   for(i=l; i<=r; i++) cout<<a[i]<<\" \\n\"[i==r];",
+      "   for(i=l; i<=r; i++) cout << a[i] << \" \\n\"[i==r];",
       "}"
     ]
   },
@@ -831,7 +845,7 @@
       "   ll oobVal=-inf;\r",
       "   vll tv,lt;\r",
       "   SMT(ll b,ll e) {\r",
-      "      lt=tv=vll(e<<3,0);\r",
+      "      lt=tv=vll(e << 3,0);\r",
       "   }\r",
       "   ll mrg(ll x,ll y) {\r",
       "      return min(x,y);\r",
@@ -842,12 +856,12 @@
       "   ll rnq(ll l,ll r,ll u,ll b,ll e) {\r",
       "      if(r<b or e<l) return oobVal;\r",
       "      if(l<=b and e<=r) return get_val(u,b,e);\r",
-      "      return mrg(rnq(l,r,u<<1,b,b+e>>1),rnq(l,r,u<<1|1,b+e+2>>1,e));\r",
+      "      return mrg(rnq(l,r,u << 1,b,b+e>>1),rnq(l,r,u << 1|1,b+e+2>>1,e));\r",
       "   }\r",
       "   ll upd(ll l,ll r,ll val,ll u,ll b,ll e) {\r",
       "      if(r<b or e<l) return get_val(u,b,e);\r",
       "      if(l<=b and e<=r) { lt[u]+=val; return get_val(u,b,e);}\r",
-      "      return tv[u]=mrg(upd(l,r,val,u<<1,b,b+e>>1),upd(l,r,val,u<<1|1,b+e+2>>1,e));\r",
+      "      return tv[u]=mrg(upd(l,r,val,u << 1,b,b+e>>1),upd(l,r,val,u << 1|1,b+e+2>>1,e));\r",
       "   }\r",
       "};"
     ]
@@ -955,10 +969,10 @@
       "\r",
       "vll sos(vll &v) {\r",
       "   ll n=v.size(), nn=(ll)log2(n)+1, i;\r",
-      "   vll sum(1ll<<nn,0);\r",
+      "   vll sum(1ll << nn,0);\r",
       "   for(i=0; i<n; i++) sum[i]=v[i];\r",
-      "   for(i=0; i<nn; i++) for(ll msk=0; msk<(1ll<<nn); msk++) {\r",
-      "      if((msk>>i)&1) sum[msk]+=sum[msk^(1ll<<i)];\r",
+      "   for(i=0; i<nn; i++) for(ll msk=0; msk<(1ll << nn); msk++) {\r",
+      "      if((msk>>i)&1) sum[msk]+=sum[msk^(1ll << i)];\r",
       "   }\r",
       "   return sum;\r",
       "}"
@@ -969,7 +983,7 @@
     "description": "",
     "body": [
       "\r",
-      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr<<\"\\n\";}\r",
+      "#define db(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); cerr << \"\\n\";}\r",
       "void err(istream_iterator<string> it) {}\r",
       "template<typename T, typename... Args>\r",
       "void err(istream_iterator<string> it, T a, Args... args) {\r",
@@ -1182,12 +1196,12 @@
       "   ll label[size], label_time;\r",
       "   ll par[size];\r",
       "\r",
-      "   ll seg_tree[size<<3];\r",
-      "   ll lazy_tree[size<<3];\r",
+      "   ll seg_tree[size << 3];\r",
+      "   ll lazy_tree[size << 3];\r",
       "\r",
-      "   ll euler_id[size<<2], euler_time;\r",
+      "   ll euler_id[size << 2], euler_time;\r",
       "   ll euler_end[size];\r",
-      "   pll lca_table[size<<2][lg];\r",
+      "   pll lca_table[size << 2][lg];\r",
       "   \r",
       "   void init(ll _n) {\r",
       "      n=_n;\r",
@@ -1195,7 +1209,7 @@
       "         edges[i]={};\r",
       "         chain[i]=i;\r",
       "      }\r",
-      "      for(ll i=1; i<=(n<<3)+3; i++) seg_tree[i]=lazy_tree[i]=0;\r",
+      "      for(ll i=1; i<=(n << 3)+3; i++) seg_tree[i]=lazy_tree[i]=0;\r",
       "   }\r",
       "   void init2() {\r",
       "      dfs(0,-1,0);\r",
@@ -1240,9 +1254,9 @@
       "         ll u=euler_id[i];\r",
       "         lca_table[i][0]=mp(depth[u],u);\r",
       "         for(ll j=1; j<lg; j++) {\r",
-      "            ll len=1ll<<j;\r",
+      "            ll len=1ll << j;\r",
       "            if(euler_time-i+1<len) break;\r",
-      "            lca_table[i][j]=min(lca_table[i][j-1],lca_table[i+(1ll<<j-1)][j-1]);\r",
+      "            lca_table[i][j]=min(lca_table[i][j-1],lca_table[i+(1ll << j-1)][j-1]);\r",
       "         }\r",
       "      }\r",
       "   }\r",
@@ -1251,7 +1265,7 @@
       "      if(euler_end[l]>euler_end[r]) swap(l,r);\r",
       "      ll l_end=euler_end[l], r_end=euler_end[r];\r",
       "      ll len=r_end-l_end+1;\r",
-      "      ll len_msb=msb(len), len_msb_len=1ll<<len_msb;\r",
+      "      ll len_msb=msb(len), len_msb_len=1ll << len_msb;\r",
       "      return min(lca_table[l_end][len_msb],lca_table[r_end-len_msb_len+1][len_msb]).sc;\r",
       "   }\r",
       "   \r",
@@ -1264,13 +1278,13 @@
       "      if(tl>qr or ql>tr) return out_of_bound;\r",
       "      if(ql<=tl and tr<=qr) return seg_tree[id];\r",
       "      ll mid=tl+tr>>1;\r",
-      "      return seg_merge(seg_q(id<<1,tl,mid,ql,qr),seg_q(id<<1|1,mid+1,tr,ql,qr));\r",
+      "      return seg_merge(seg_q(id << 1,tl,mid,ql,qr),seg_q(id << 1|1,mid+1,tr,ql,qr));\r",
       "   }\r",
       "   ll seg_u(ll id,ll tl,ll tr,ll qi,ll val) {\r",
       "      if(tl>qi or qi>tr) return seg_tree[id];\r",
       "      if(qi==tl and tr==qi) return seg_tree[id]=val;\r",
       "      ll mid=tl+tr>>1;\r",
-      "      return seg_tree[id]=seg_merge(seg_u(id<<1,tl,mid,qi,val),seg_u(id<<1|1,mid+1,tr,qi,val));\r",
+      "      return seg_tree[id]=seg_merge(seg_u(id << 1,tl,mid,qi,val),seg_u(id << 1|1,mid+1,tr,qi,val));\r",
       "   }\r",
       "   \r",
       "   /* -------------- HLD -----------*/\r",
@@ -1320,13 +1334,27 @@
       "      return val_id(id,tl,tr,I);\r",
       "   }\r",
       "   ll mid=tl+tr>>1;\r",
-      "   return seg[I][id]=merge(update(id<<1,tl,mid,ql,qr,val,I),update(id<<1|1,mid+1,tr,ql,qr,val,I));\r",
+      "   return seg[I][id]=merge(update(id << 1,tl,mid,ql,qr,val,I),update(id << 1|1,mid+1,tr,ql,qr,val,I));\r",
       "}\r",
       "ll query(ll id,ll tl,ll tr,ll ql,ll qr,ll I) {\r",
       "   if(ql>tr or tl>qr) return 0;\r",
       "   if(ql<=tl and tr<=qr) return val_id(id,tl,tr,I);\r",
       "   ll mid=tl+tr>>1;\r",
-      "   return merge(query(id<<1,tl,mid,ql,qr,I),query(id<<1|1,mid+1,tr,ql,qr,I));\r",
+      "   return merge(query(id << 1,tl,mid,ql,qr,I),query(id << 1|1,mid+1,tr,ql,qr,I));\r",
+      "}"
+    ]
+  },
+  "small_ncr": {
+    "prefix": "small_ncr\r",
+    "description": "",
+    "body": [
+      "\r",
+      "ncr[1][1]=1;\r",
+      "for(i=1; i<=5000; i++) {\r",
+      "   ncr[i][i]=ncr[i][0]=1;\r",
+      "   for(j=1; j<i; j++) {\r",
+      "      ncr[i][j]=add(ncr[i-1][j],ncr[i-1][j-1]);\r",
+      "   }\r",
       "}"
     ]
   }
