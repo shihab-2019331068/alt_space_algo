@@ -411,3 +411,9 @@ struct LCT {
     }
 };
 
+/*-------------- vector set map debug ----------- */
+template<class L, class R> ostream& operator << (ostream& out, pair<L, R>& p) { return out << "(" << p.fr << ", " << p.sc << ")"; }
+template<class T> ostream& operator << (ostream& out, vector<T>& v) { out << "[";for (auto it = v.begin ();it != v.end ();++it) { if (it != v.begin ())out << ", ";out << *it; }return out << "]\n"; }
+template<class T> ostream& operator << (ostream& out, deque<T>& v) { out << "[";for (auto it = v.begin ();it != v.end ();++it) { if (it != v.begin ())out << ", ";out << *it; }return out << "]\n"; }
+template<class T> ostream& operator << (ostream& out, set<T>& s) { out << "{";for (auto it = s.begin ();it != s.end ();++it) { if (it != s.begin ())out << ", ";out << *it; }return out << "}\n"; }
+template<class L, class R> ostream& operator << (ostream& out, map<L, R>& m) { out << "{";for (auto it = m.begin ();it != m.end ();++it) { if (it != m.begin ())out << ", ";out << *it; }return out << "}\n"; }
